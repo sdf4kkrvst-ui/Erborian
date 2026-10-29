@@ -1,0 +1,475 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Азбука для малышей</title>
+<style>
+  :root {
+    --bg-1: #FFF8E7;
+    --bg-2: #FFEFC6;
+    --card: #FFFDF8;
+    --card-edge: #F3E3BE;
+    --ink: #4A3324;
+    --ink-soft: #9A7F5C;
+    --letter: #FF6B45;
+    --letter-shadow: #E85A38;
+    --rind: #2F9E5B;
+    --rind-dark: #227A44;
+    --focus: #2F9E5B;
+    --chip: #FFFFFF;
+    --chip-edge: #F0DFB8;
+    --shadow: 0 30px 60px -20px rgba(74, 51, 36, 0.35);
+  }
+
+  :root[data-theme="dark"] {
+    --bg-1: #1B1330;
+    --bg-2: #2A1C46;
+    --card: #241B3D;
+    --card-edge: #3A2C5C;
+    --ink: #F5EAD9;
+    --ink-soft: #C7B6DC;
+    --letter: #FF8F6B;
+    --letter-shadow: #D96A48;
+    --rind: #4DBE82;
+    --rind-dark: #7FD9A8;
+    --focus: #7FD9A8;
+    --chip: #2E2350;
+    --chip-edge: #45356C;
+    --shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg-1: #1B1330; --bg-2: #2A1C46; --card: #241B3D; --card-edge: #3A2C5C;
+      --ink: #F5EAD9; --ink-soft: #C7B6DC; --letter: #FF8F6B; --letter-shadow: #D96A48;
+      --rind: #4DBE82; --rind-dark: #7FD9A8; --focus: #7FD9A8;
+      --chip: #2E2350; --chip-edge: #45356C; --shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: clamp(16px, 3vw, 40px);
+    background: radial-gradient(120% 90% at 50% -10%, var(--bg-2) 0%, var(--bg-1) 60%);
+    font-family: 'Segoe UI Rounded', 'SF Rounded', ui-rounded, 'Nunito', 'Segoe UI', system-ui, sans-serif;
+    color: var(--ink);
+  }
+
+  .app { width: 100%; max-width: 920px; display: flex; flex-direction: column; gap: 16px; }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    font-weight: 800;
+    font-size: clamp(16px, 2.2vw, 20px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .progress-wrap { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: flex-end; min-width: 220px; }
+
+  .progress-track {
+    position: relative;
+    width: clamp(140px, 28vw, 260px);
+    height: 8px;
+    background: var(--chip-edge);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    position: absolute;
+    inset: 0;
+    width: 0%;
+    background: var(--rind);
+    border-radius: 999px;
+    transition: width 0.35s ease;
+  }
+
+  .counter { font-size: 14px; font-weight: 700; color: var(--ink-soft); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .card {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--card-edge);
+    border-radius: clamp(28px, 4vw, 44px);
+    box-shadow: var(--shadow);
+    padding: clamp(26px, 5vw, 52px) clamp(22px, 6vw, 60px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 2vw, 16px);
+    min-height: clamp(360px, 46vw, 480px);
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: clamp(12px, 1.4vw, 14px);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .scene {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    min-height: clamp(200px, 30vw, 300px);
+  }
+
+  .letters { position: relative; display: flex; align-items: baseline; line-height: 1; z-index: 2; }
+
+  .letter-big {
+    font-size: clamp(120px, 20vw, 260px);
+    font-weight: 800;
+    color: var(--letter);
+    text-shadow: 6px 8px 0 var(--letter-shadow);
+  }
+
+  .letter-small {
+    font-size: clamp(60px, 10vw, 130px);
+    font-weight: 700;
+    color: var(--letter);
+    opacity: 0.72;
+    margin-left: 0.05em;
+  }
+
+  .icon-wrap { position: relative; display: flex; justify-content: center; }
+  .icon-wrap svg { width: clamp(140px, 22vw, 260px); height: auto; }
+
+  .caption { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+
+  .word { font-size: clamp(26px, 3.6vw, 40px); font-weight: 800; letter-spacing: 0.05em; color: var(--rind-dark); }
+  .hint { font-size: clamp(14px, 1.7vw, 17px); font-weight: 600; color: var(--ink-soft); }
+
+  /* entrance animation, retriggered per slide via .enter class */
+  .anim-eyebrow, .anim-letters, .anim-icon, .anim-caption { opacity: 0; }
+  .enter .anim-eyebrow { animation: rise 0.5s ease-out 0.02s forwards; }
+  .enter .letter-big { animation: drop 0.6s cubic-bezier(.34,1.56,.64,1) 0.18s forwards; }
+  .enter .letter-small { animation: drop 0.6s cubic-bezier(.34,1.56,.64,1) 0.28s forwards; }
+  .enter .anim-icon { animation: pop 0.55s cubic-bezier(.22,1,.36,1) 0.42s forwards; }
+  .enter .anim-caption { animation: rise 0.5s ease-out 0.68s forwards; }
+  .letter-big, .letter-small { opacity: 0; transform: translateY(-140%); }
+
+  @keyframes drop { 0% { transform: translateY(-140%); opacity: 0; } 60% { opacity: 1; } 100% { transform: translateY(0); opacity: 1; } }
+  @keyframes rise { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes pop { from { transform: scale(0.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim-eyebrow, .anim-icon, .anim-caption, .letter-big, .letter-small { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .ctrl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid var(--card-edge);
+    background: var(--chip);
+    color: var(--ink);
+    font: inherit;
+    font-weight: 700;
+    font-size: clamp(13px, 1.6vw, 15px);
+    padding: 12px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .ctrl-btn:hover { border-color: var(--rind); transform: translateY(-1px); }
+  .ctrl-btn:active { transform: translateY(0); }
+  .ctrl-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .ctrl-btn.primary { background: var(--rind); border-color: var(--rind); color: #fff; }
+  .ctrl-btn svg { width: 16px; height: 16px; }
+  .ctrl-btn.icon-only { padding: 12px 14px; }
+
+  .status-line {
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-soft);
+    min-height: 18px;
+  }
+</style>
+
+<div class="app">
+  <div class="topbar">
+    <div class="brand">🍉 Азбука для малышей</div>
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <span class="counter" id="counter">1 / 33</span>
+    </div>
+  </div>
+
+  <div class="card enter" id="card">
+    <div class="eyebrow anim-eyebrow">
+      <span id="eyebrowText">Азбука для малышей · буква 1 из 33</span>
+      <span>3–5 лет</span>
+    </div>
+
+    <div class="scene">
+      <div class="letters">
+        <span class="letter-big" id="letterBig">А</span><span class="letter-small" id="letterSmall">а</span>
+      </div>
+      <div class="icon-wrap anim-icon" id="iconWrap"></div>
+    </div>
+
+    <div class="caption anim-caption">
+      <span class="word" id="wordText">АРБУЗ</span>
+      <span class="hint" id="hintText">А, как «Арбуз»</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="ctrl-btn icon-only" id="prevBtn" type="button" aria-label="Предыдущая буква">⟵</button>
+    <button class="ctrl-btn primary" id="playBtn" type="button">▶ Начать</button>
+    <button class="ctrl-btn icon-only" id="nextBtn" type="button" aria-label="Следующая буква">⟶</button>
+    <button class="ctrl-btn icon-only" id="muteBtn" type="button" aria-label="Выключить озвучку">🔊</button>
+  </div>
+
+  <div class="status-line" id="statusLine">Нажмите «Начать» — буквы будут сменяться примерно раз в 7–8 секунд.</div>
+</div>
+
+<script>
+(function () {
+  var S = function (a, b) { return { fill: a, fill2: b }; };
+
+  var LETTERS = [
+    { L:'А', l:'а', word:'АРБУЗ', hint:'А, как «Арбуз»', voice:'А, как арбуз',
+      icon:'<svg viewBox="0 0 220 140"><path d="M14 112 A 96 96 0 0 1 206 112 Z" fill="#2F9E5B"/><path d="M32 112 A 78 78 0 0 1 188 112 Z" fill="#F4EEDD"/><path d="M50 112 A 60 60 0 0 1 170 112 Z" fill="#FF5A5F"/><line x1="14" y1="112" x2="206" y2="112" stroke="#227A44" stroke-width="7" stroke-linecap="round"/><circle cx="90" cy="88" r="5" fill="#3B2A20"/><circle cx="130" cy="82" r="5" fill="#3B2A20"/><circle cx="110" cy="100" r="5" fill="#3B2A20"/></svg>' },
+    { L:'Б', l:'б', word:'БАБОЧКА', hint:'Б, как «Бабочка»', voice:'Б, как бабочка',
+      icon:'<svg viewBox="0 0 200 180"><ellipse cx="70" cy="70" rx="46" ry="34" fill="#B98BD6" transform="rotate(-18 70 70)"/><ellipse cx="130" cy="70" rx="46" ry="34" fill="#F2A6C6" transform="rotate(18 130 70)"/><ellipse cx="76" cy="120" rx="30" ry="22" fill="#F2A6C6" transform="rotate(-10 76 120)"/><ellipse cx="124" cy="120" rx="30" ry="22" fill="#B98BD6" transform="rotate(10 124 120)"/><rect x="97" y="55" width="6" height="70" rx="3" fill="#4A3324"/><circle cx="100" cy="52" r="7" fill="#4A3324"/><line x1="97" y1="45" x2="82" y2="28" stroke="#4A3324" stroke-width="3" stroke-linecap="round"/><line x1="103" y1="45" x2="118" y2="28" stroke="#4A3324" stroke-width="3" stroke-linecap="round"/></svg>' },
+    { L:'В', l:'в', word:'ВИШНИ', hint:'В, как «Вишни»', voice:'В, как вишни',
+      icon:'<svg viewBox="0 0 200 180"><path d="M100 20 C 95 60, 80 90, 70 110" fill="none" stroke="#227A44" stroke-width="5"/><path d="M100 20 C 108 55, 120 85, 132 108" fill="none" stroke="#227A44" stroke-width="5"/><ellipse cx="90" cy="40" rx="20" ry="12" fill="#3FA65A" transform="rotate(-20 90 40)"/><circle cx="66" cy="132" r="34" fill="#E23B4A"/><circle cx="134" cy="130" r="34" fill="#D8324A"/><ellipse cx="55" cy="120" rx="8" ry="5" fill="#FF8B93" opacity="0.7"/></svg>' },
+    { L:'Г', l:'г', word:'ГРИБ', hint:'Г, как «Гриб»', voice:'Г, как гриб',
+      icon:'<svg viewBox="0 0 200 180"><rect x="85" y="95" width="30" height="60" rx="10" fill="#F4EEDD"/><path d="M30 100 Q100 20 170 100 Q100 130 30 100Z" fill="#D8483A"/><circle cx="70" cy="80" r="7" fill="#F4EEDD"/><circle cx="110" cy="65" r="6" fill="#F4EEDD"/><circle cx="135" cy="88" r="6" fill="#F4EEDD"/><circle cx="95" cy="95" r="5" fill="#F4EEDD"/></svg>' },
+    { L:'Д', l:'д', word:'ДОМ', hint:'Д, как «Дом»', voice:'Д, как дом',
+      icon:'<svg viewBox="0 0 200 180"><polygon points="100,25 175,85 25,85" fill="#D8483A"/><rect x="40" y="85" width="120" height="80" fill="#F0C48A"/><rect x="88" y="120" width="26" height="45" fill="#8A5A34"/><rect x="52" y="100" width="26" height="26" fill="#8FC7E8"/><rect x="122" y="100" width="26" height="26" fill="#8FC7E8"/></svg>' },
+    { L:'Е', l:'е', word:'ЁЛЬ', hint:'Е, как «Ель»', voice:'Е, как ель',
+      icon:'<svg viewBox="0 0 200 200"><rect x="92" y="150" width="16" height="30" fill="#8A5A34"/><polygon points="100,20 150,90 50,90" fill="#2F9E5B"/><polygon points="100,55 158,125 42,125" fill="#37A862"/><polygon points="100,90 166,160 34,160" fill="#3FB56C"/></svg>' },
+    { L:'Ё', l:'ё', word:'ЁЖИК', hint:'Ё, как «Ёжик»', voice:'Ё, как ёжик',
+      icon:'<svg viewBox="0 0 200 160"><ellipse cx="100" cy="105" rx="60" ry="34" fill="#B98A5C"/><polygon points="55,90 40,55 65,80" fill="#8A5A34"/><polygon points="75,78 65,42 90,72" fill="#8A5A34"/><polygon points="98,72 95,36 115,68" fill="#8A5A34"/><polygon points="122,74 128,40 145,72" fill="#8A5A34"/><polygon points="142,84 158,54 158,90" fill="#8A5A34"/><circle cx="42" cy="105" r="16" fill="#D9B48A"/><circle cx="36" cy="100" r="3" fill="#3B2A20"/><circle cx="30" cy="107" r="3" fill="#3B2A20"/></svg>' },
+    { L:'Ж', l:'ж', word:'ЖУК', hint:'Ж, как «Жук»', voice:'Ж, как жук',
+      icon:'<svg viewBox="0 0 200 160"><ellipse cx="100" cy="90" rx="46" ry="54" fill="#2E6B4A"/><line x1="100" y1="40" x2="100" y2="140" stroke="#183D2A" stroke-width="4"/><circle cx="100" cy="34" r="16" fill="#183D2A"/><line x1="60" y1="70" x2="30" y2="60" stroke="#183D2A" stroke-width="5" stroke-linecap="round"/><line x1="58" y1="90" x2="26" y2="90" stroke="#183D2A" stroke-width="5" stroke-linecap="round"/><line x1="60" y1="110" x2="30" y2="120" stroke="#183D2A" stroke-width="5" stroke-linecap="round"/><line x1="140" y1="70" x2="170" y2="60" stroke="#183D2A" stroke-width="5" stroke-linecap="round"/><line x1="142" y1="90" x2="174" y2="90" stroke="#183D2A" stroke-width="5" stroke-linecap="round"/><line x1="140" y1="110" x2="170" y2="120" stroke="#183D2A" stroke-width="5" stroke-linecap="round"/></svg>' },
+    { L:'З', l:'з', word:'ЗАЙКА', hint:'З, как «Зайка»', voice:'З, как зайка',
+      icon:'<svg viewBox="0 0 200 200"><ellipse cx="100" cy="140" rx="44" ry="38" fill="#E9E4DA"/><circle cx="100" cy="90" r="34" fill="#F2EEE6"/><ellipse cx="80" cy="35" rx="12" ry="34" fill="#F2EEE6" transform="rotate(-8 80 35)"/><ellipse cx="120" cy="35" rx="12" ry="34" fill="#F2EEE6" transform="rotate(8 120 35)"/><ellipse cx="80" cy="38" rx="6" ry="20" fill="#F2A6C6"/><ellipse cx="120" cy="38" rx="6" ry="20" fill="#F2A6C6"/><circle cx="90" cy="88" r="4" fill="#3B2A20"/><circle cx="110" cy="88" r="4" fill="#3B2A20"/><circle cx="100" cy="98" r="4" fill="#E58B9A"/></svg>' },
+    { L:'И', l:'и', word:'ИГОЛКА', hint:'И, как «Иголка с ниткой»', voice:'И, как иголка',
+      icon:'<svg viewBox="0 0 200 100"><line x1="20" y1="70" x2="170" y2="20" stroke="#B9C1CC" stroke-width="6" stroke-linecap="round"/><ellipse cx="176" cy="17" rx="10" ry="6" fill="none" stroke="#B9C1CC" stroke-width="5" transform="rotate(-20 176 17)"/><path d="M20 70 C 60 95, 90 40, 130 62" fill="none" stroke="#D8483A" stroke-width="4"/></svg>' },
+    { L:'Й', l:'й', word:'ЙОГУРТ', hint:'Й, как «Йогурт»', voice:'Й, как йогурт',
+      icon:'<svg viewBox="0 0 160 180"><path d="M40 60 L60 160 L100 160 L120 60 Z" fill="#FDF8F0" stroke="#F2A6C6" stroke-width="4"/><ellipse cx="80" cy="60" rx="42" ry="12" fill="#F2A6C6"/><rect x="120" y="90" width="6" height="60" fill="#B9C1CC"/><ellipse cx="123" cy="86" rx="14" ry="7" fill="#B9C1CC"/></svg>' },
+    { L:'К', l:'к', word:'КОТ', hint:'К, как «Кот»', voice:'К, как кот',
+      icon:'<svg viewBox="0 0 200 180"><polygon points="55,55 70,15 90,60" fill="#E8964A"/><polygon points="145,55 130,15 110,60" fill="#E8964A"/><circle cx="100" cy="100" r="60" fill="#F2A65C"/><circle cx="80" cy="95" r="6" fill="#3B2A20"/><circle cx="120" cy="95" r="6" fill="#3B2A20"/><polygon points="94,110 106,110 100,118" fill="#3B2A20"/><line x1="60" y1="115" x2="20" y2="108" stroke="#3B2A20" stroke-width="3"/><line x1="60" y1="125" x2="20" y2="130" stroke="#3B2A20" stroke-width="3"/><line x1="140" y1="115" x2="180" y2="108" stroke="#3B2A20" stroke-width="3"/><line x1="140" y1="125" x2="180" y2="130" stroke="#3B2A20" stroke-width="3"/></svg>' },
+    { L:'Л', l:'л', word:'ЛИСА', hint:'Л, как «Лиса»', voice:'Л, как лиса',
+      icon:'<svg viewBox="0 0 200 180"><ellipse cx="140" cy="120" rx="46" ry="26" fill="#E8783C"/><circle cx="150" cy="118" r="14" fill="#F2EEE6"/><polygon points="55,55 75,20 95,65" fill="#E8783C"/><polygon points="145,55 125,20 105,65" fill="#E8783C"/><circle cx="100" cy="95" r="55" fill="#E8783C"/><polygon points="75,100 125,100 100,130" fill="#F2EEE6"/><circle cx="82" cy="88" r="6" fill="#3B2A20"/><circle cx="118" cy="88" r="6" fill="#3B2A20"/><circle cx="100" cy="112" r="6" fill="#3B2A20"/></svg>' },
+    { L:'М', l:'м', word:'МЯЧ', hint:'М, как «Мяч»', voice:'М, как мяч',
+      icon:'<svg viewBox="0 0 180 180"><circle cx="90" cy="90" r="70" fill="#FFC94A"/><path d="M20 90 Q90 40 160 90" fill="none" stroke="#D8483A" stroke-width="10"/><path d="M20 90 Q90 140 160 90" fill="none" stroke="#2F9E5B" stroke-width="10"/></svg>' },
+    { L:'Н', l:'н', word:'НОЖНИЦЫ', hint:'Н, как «Ножницы»', voice:'Н, как ножницы',
+      icon:'<svg viewBox="0 0 200 180"><circle cx="50" cy="140" r="20" fill="none" stroke="#B9C1CC" stroke-width="8"/><circle cx="90" cy="150" r="20" fill="none" stroke="#B9C1CC" stroke-width="8"/><polygon points="60,125 175,30 165,25 55,115" fill="#8B93A0"/><polygon points="95,132 180,20 170,18 82,120" fill="#8B93A0"/><circle cx="75" cy="118" r="6" fill="#4A3324"/></svg>' },
+    { L:'О', l:'о', word:'ОГУРЕЦ', hint:'О, как «Огурец»', voice:'О, как огурец',
+      icon:'<svg viewBox="0 0 200 100"><rect x="20" y="30" width="150" height="40" rx="20" fill="#3FA65A" transform="rotate(-6 95 50)"/><ellipse cx="55" cy="42" rx="4" ry="6" fill="#227A44" transform="rotate(-6 55 42)"/><ellipse cx="90" cy="38" rx="4" ry="6" fill="#227A44" transform="rotate(-6 90 38)"/><ellipse cx="125" cy="34" rx="4" ry="6" fill="#227A44" transform="rotate(-6 125 34)"/></svg>' },
+    { L:'П', l:'п', word:'ПИНГВИН', hint:'П, как «Пингвин»', voice:'П, как пингвин',
+      icon:'<svg viewBox="0 0 160 200"><ellipse cx="80" cy="120" rx="55" ry="70" fill="#2C2C3A"/><ellipse cx="80" cy="130" rx="32" ry="50" fill="#F2EEE6"/><circle cx="80" cy="55" r="38" fill="#2C2C3A"/><ellipse cx="80" cy="62" rx="18" ry="22" fill="#F2EEE6"/><polygon points="68,58 92,58 80,75" fill="#F2A230"/><circle cx="70" cy="48" r="4" fill="#000"/><circle cx="90" cy="48" r="4" fill="#000"/><ellipse cx="55" cy="185" rx="16" ry="7" fill="#F2A230"/><ellipse cx="105" cy="185" rx="16" ry="7" fill="#F2A230"/></svg>' },
+    { L:'Р', l:'р', word:'РЫБКА', hint:'Р, как «Рыбка»', voice:'Р, как рыбка',
+      icon:'<svg viewBox="0 0 200 140"><ellipse cx="95" cy="70" rx="65" ry="42" fill="#4FA6D8"/><polygon points="160,70 200,35 200,105" fill="#3E86B0"/><polygon points="70,32 90,32 80,55" fill="#3E86B0"/><circle cx="55" cy="65" r="7" fill="#fff"/><circle cx="55" cy="65" r="3" fill="#1B2A38"/><path d="M40 70 Q60 85 85 78" fill="none" stroke="#3E86B0" stroke-width="4"/></svg>' },
+    { L:'С', l:'с', word:'СЛОН', hint:'С, как «Слон»', voice:'С, как слон',
+      icon:'<svg viewBox="0 0 220 180"><ellipse cx="120" cy="110" rx="65" ry="55" fill="#A6ABBE"/><ellipse cx="52" cy="95" rx="30" ry="38" fill="#939AB0"/><path d="M85 130 Q60 175 40 175 Q55 150 60 128" fill="#A6ABBE"/><circle cx="105" cy="90" r="6" fill="#2C2C3A"/><ellipse cx="150" cy="165" rx="14" ry="8" fill="#8890A5"/><ellipse cx="185" cy="165" rx="14" ry="8" fill="#8890A5"/></svg>' },
+    { L:'Т', l:'т', word:'ТОРТ', hint:'Т, как «Торт»', voice:'Т, как торт',
+      icon:'<svg viewBox="0 0 200 160"><rect x="30" y="90" width="140" height="55" rx="10" fill="#F2A6C6"/><path d="M30 90 Q45 70 60 90 Q75 70 90 90 Q105 70 120 90 Q135 70 150 90 Q160 78 170 90 L170 100 L30 100Z" fill="#FDF8F0"/><rect x="95" y="45" width="8" height="28" fill="#F2C46A"/><path d="M99 30 Q106 40 99 45 Q92 40 99 30Z" fill="#F2A230"/><circle cx="55" cy="118" r="4" fill="#D8483A"/><circle cx="80" cy="122" r="4" fill="#3FA65A"/><circle cx="120" cy="118" r="4" fill="#4FA6D8"/><circle cx="145" cy="122" r="4" fill="#D8483A"/></svg>' },
+    { L:'У', l:'у', word:'УТКА', hint:'У, как «Утка»', voice:'У, как утка',
+      icon:'<svg viewBox="0 0 200 160"><ellipse cx="95" cy="110" rx="70" ry="42" fill="#F2C94C"/><circle cx="150" cy="65" r="34" fill="#F2C94C"/><polygon points="178,62 205,68 178,78" fill="#F2A230"/><circle cx="158" cy="58" r="4" fill="#2C2C3A"/><ellipse cx="80" cy="110" rx="26" ry="16" fill="#E8B93A"/></svg>' },
+    { L:'Ф', l:'ф', word:'ФЛАГ', hint:'Ф, как «Флаг»', voice:'Ф, как флаг',
+      icon:'<svg viewBox="0 0 160 200"><rect x="70" y="20" width="8" height="160" rx="3" fill="#8A5A34"/><path d="M78 25 L150 45 L78 80Z" fill="#D8483A"/><ellipse cx="74" cy="182" rx="18" ry="7" fill="#8A5A34"/></svg>' },
+    { L:'Х', l:'х', word:'ХОМЯК', hint:'Х, как «Хомяк»', voice:'Х, как хомяк',
+      icon:'<svg viewBox="0 0 200 180"><circle cx="100" cy="105" r="65" fill="#D9A05C"/><circle cx="55" cy="60" r="18" fill="#D9A05C"/><circle cx="145" cy="60" r="18" fill="#D9A05C"/><ellipse cx="62" cy="115" rx="26" ry="18" fill="#F2D6A8"/><ellipse cx="138" cy="115" rx="26" ry="18" fill="#F2D6A8"/><circle cx="80" cy="95" r="5" fill="#3B2A20"/><circle cx="120" cy="95" r="5" fill="#3B2A20"/><ellipse cx="100" cy="112" rx="6" ry="4" fill="#3B2A20"/></svg>' },
+    { L:'Ц', l:'ц', word:'ЦВЕТОК', hint:'Ц, как «Цветок»', voice:'Ц, как цветок',
+      icon:'<svg viewBox="0 0 180 200"><rect x="85" y="120" width="8" height="60" fill="#3FA65A"/><ellipse cx="60" cy="150" rx="18" ry="8" fill="#3FA65A" transform="rotate(30 60 150)"/><g transform="translate(90 80)"><ellipse cx="0" cy="-30" rx="16" ry="26" fill="#E693C4"/><ellipse cx="0" cy="30" rx="16" ry="26" fill="#E693C4"/><ellipse cx="-30" cy="0" rx="26" ry="16" fill="#E693C4"/><ellipse cx="30" cy="0" rx="26" ry="16" fill="#E693C4"/><ellipse cx="-21" cy="-21" rx="18" ry="14" fill="#EDA9D1" transform="rotate(-45)"/><ellipse cx="21" cy="-21" rx="18" ry="14" fill="#EDA9D1" transform="rotate(45)"/><ellipse cx="-21" cy="21" rx="18" ry="14" fill="#EDA9D1" transform="rotate(45)"/><ellipse cx="21" cy="21" rx="18" ry="14" fill="#EDA9D1" transform="rotate(-45)"/><circle cx="0" cy="0" r="16" fill="#F2C94C"/></g></svg>' },
+    { L:'Ч', l:'ч', word:'ЧЕРЕПАХА', hint:'Ч, как «Черепаха»', voice:'Ч, как черепаха',
+      icon:'<svg viewBox="0 0 220 160"><ellipse cx="110" cy="70" rx="80" ry="20" fill="#8A5A34"/><ellipse cx="110" cy="90" rx="72" ry="46" fill="#3FA65A"/><polygon points="90,60 130,60 118,80 102,80" fill="#2F9E5B" opacity="0.6"/><ellipse cx="30" cy="100" rx="20" ry="14" fill="#3FA65A"/><circle cx="18" cy="97" r="3" fill="#183D2A"/><ellipse cx="70" cy="140" rx="12" ry="10" fill="#3FA65A"/><ellipse cx="150" cy="140" rx="12" ry="10" fill="#3FA65A"/><ellipse cx="185" cy="105" rx="14" ry="9" fill="#3FA65A"/></svg>' },
+    { L:'Ш', l:'ш', word:'ШАР', hint:'Ш, как «Воздушный шар»', voice:'Ш, как шар',
+      icon:'<svg viewBox="0 0 160 200"><circle cx="80" cy="80" r="60" fill="#E8783C"/><ellipse cx="60" cy="55" rx="14" ry="20" fill="#F2A65C" opacity="0.7"/><polygon points="70,138 90,138 80,155" fill="#E8783C"/><path d="M80 155 Q95 170 80 185" fill="none" stroke="#8A5A34" stroke-width="3"/></svg>' },
+    { L:'Щ', l:'щ', word:'ЩЕНОК', hint:'Щ, как «Щенок»', voice:'Щ, как щенок',
+      icon:'<svg viewBox="0 0 200 180"><ellipse cx="70" cy="60" rx="18" ry="34" fill="#B9825A" transform="rotate(-20 70 60)"/><ellipse cx="130" cy="60" rx="18" ry="34" fill="#B9825A" transform="rotate(20 130 60)"/><circle cx="100" cy="95" r="55" fill="#D9A467"/><ellipse cx="100" cy="115" rx="26" ry="18" fill="#F2E4CC"/><circle cx="82" cy="88" r="6" fill="#3B2A20"/><circle cx="118" cy="88" r="6" fill="#3B2A20"/><ellipse cx="100" cy="102" rx="6" ry="4" fill="#3B2A20"/><path d="M92 122 Q100 132 108 122" fill="none" stroke="#E58B9A" stroke-width="5" stroke-linecap="round"/></svg>' },
+    { L:'Ъ', l:'ъ', word:'ТВЁРДЫЙ ЗНАК', hint:'Не читается — делает согласный твёрдым', voice:'Твёрдый знак', noExample:true,
+      icon:'<svg viewBox="0 0 160 160"><path d="M80 20 L140 45 L140 90 Q140 130 80 150 Q20 130 20 90 L20 45 Z" fill="#B9C1CC"/><path d="M80 20 L140 45 L140 90 Q140 130 80 150 Z" fill="#8B93A0"/><rect x="65" y="65" width="30" height="40" rx="4" fill="#F2EEE6"/><rect x="72" y="55" width="16" height="16" rx="8" fill="#F2EEE6"/></svg>' },
+    { L:'Ы', l:'ы', word:'мЫло', hint:'Ы не бывает в начале слова, но есть в слове «мыло»', voice:'Ы, не в начале, а в слове мыло', noExample:true,
+      icon:'<svg viewBox="0 0 200 160"><rect x="50" y="60" width="100" height="60" rx="18" fill="#CFE8F2"/><rect x="58" y="66" width="84" height="18" rx="9" fill="#E8F5FA"/><circle cx="150" cy="45" r="9" fill="#CFE8F2"/><circle cx="168" cy="60" r="6" fill="#CFE8F2"/><circle cx="40" cy="50" r="6" fill="#CFE8F2"/></svg>' },
+    { L:'Ь', l:'ь', word:'МЯГКИЙ ЗНАК', hint:'Не читается — делает согласный мягким', voice:'Мягкий знак', noExample:true,
+      icon:'<svg viewBox="0 0 180 140"><ellipse cx="60" cy="80" rx="46" ry="30" fill="#F2C6DE"/><ellipse cx="115" cy="70" rx="40" ry="26" fill="#EDA9D1"/><ellipse cx="150" cy="90" rx="30" ry="20" fill="#F2C6DE"/><ellipse cx="90" cy="95" rx="36" ry="20" fill="#F7D9EB"/></svg>' },
+    { L:'Э', l:'э', word:'ЭКСКАВАТОР', hint:'Э, как «Экскаватор»', voice:'Э, как экскаватор',
+      icon:'<svg viewBox="0 0 220 160"><rect x="40" y="90" width="90" height="45" rx="8" fill="#F2C94C"/><rect x="55" y="60" width="55" height="35" rx="8" fill="#F2C94C"/><rect x="60" y="68" width="24" height="18" rx="3" fill="#8FC7E8"/><line x1="105" y1="75" x2="170" y2="45" stroke="#8A5A34" stroke-width="9" stroke-linecap="round"/><line x1="170" y1="45" x2="150" y2="90" stroke="#8A5A34" stroke-width="7" stroke-linecap="round"/><polygon points="140,85 165,85 155,110 130,105" fill="#8B93A0"/><rect x="30" y="135" width="110" height="14" rx="7" fill="#3B2A20"/><circle cx="55" cy="142" r="10" fill="#2C2C3A"/><circle cx="95" cy="142" r="10" fill="#2C2C3A"/><circle cx="125" cy="142" r="10" fill="#2C2C3A"/></svg>' },
+    { L:'Ю', l:'ю', word:'ЮЛА', hint:'Ю, как «Юла»', voice:'Ю, как юла',
+      icon:'<svg viewBox="0 0 160 180"><circle cx="80" cy="30" r="12" fill="#4FA6D8"/><rect x="74" y="40" width="12" height="18" fill="#3E86B0"/><polygon points="30,58 130,58 80,160" fill="#F2A230"/><ellipse cx="80" cy="58" rx="50" ry="12" fill="#F2C94C"/><path d="M20 90 Q10 70 25 55" fill="none" stroke="#B9C1CC" stroke-width="4" stroke-linecap="round"/><path d="M140 90 Q150 70 135 55" fill="none" stroke="#B9C1CC" stroke-width="4" stroke-linecap="round"/></svg>' },
+    { L:'Я', l:'я', word:'ЯБЛОКО', hint:'Я, как «Яблоко»', voice:'Я, как яблоко',
+      icon:'<svg viewBox="0 0 160 180"><path d="M80 55 C 30 55 20 110 45 145 C 60 165 70 165 80 155 C 90 165 100 165 115 145 C 140 110 130 55 80 55Z" fill="#E23B4A"/><path d="M80 40 C 70 55 90 55 80 40Z" fill="#8A5A34"/><rect x="77" y="20" width="6" height="24" rx="3" fill="#8A5A34"/><ellipse cx="95" cy="25" rx="14" ry="8" fill="#3FA65A" transform="rotate(20 95 25)"/><ellipse cx="55" cy="85" rx="8" ry="14" fill="#FF8B93" opacity="0.6"/></svg>' }
+  ];
+
+  var TOTAL = LETTERS.length;
+  var idx = 0, playing = false, cancelled = false, muted = false;
+  var gen = 0; // generation counter to cancel stale async loops
+
+  var card = document.getElementById('card');
+  var elLetterBig = document.getElementById('letterBig');
+  var elLetterSmall = document.getElementById('letterSmall');
+  var elIconWrap = document.getElementById('iconWrap');
+  var elWord = document.getElementById('wordText');
+  var elHint = document.getElementById('hintText');
+  var elEyebrow = document.getElementById('eyebrowText');
+  var elCounter = document.getElementById('counter');
+  var elFill = document.getElementById('progressFill');
+  var elStatus = document.getElementById('statusLine');
+  var playBtn = document.getElementById('playBtn');
+  var muteBtn = document.getElementById('muteBtn');
+
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  function renderSlide(i) {
+    var d = LETTERS[i];
+    elLetterBig.textContent = d.L;
+    elLetterSmall.textContent = d.l;
+    elIconWrap.innerHTML = d.icon;
+    elWord.textContent = d.word;
+    elHint.textContent = d.hint;
+    elEyebrow.textContent = 'Азбука для малышей · буква ' + (i + 1) + ' из ' + TOTAL;
+    elCounter.textContent = (i + 1) + ' / ' + TOTAL;
+    elFill.style.width = (((i + 1) / TOTAL) * 100) + '%';
+
+    card.classList.remove('enter');
+    void card.offsetWidth;
+    card.classList.add('enter');
+  }
+
+  var voicesReady = false;
+  function ensureVoices() {
+    if (!('speechSynthesis' in window)) return Promise.resolve([]);
+    var v = speechSynthesis.getVoices();
+    if (v.length) return Promise.resolve(v);
+    return new Promise(function (resolve) {
+      var done = false;
+      speechSynthesis.onvoiceschanged = function () {
+        if (done) return; done = true;
+        resolve(speechSynthesis.getVoices());
+      };
+      setTimeout(function () { if (!done) { done = true; resolve(speechSynthesis.getVoices()); } }, 800);
+    });
+  }
+
+  function speak(text) {
+    if (muted || !('speechSynthesis' in window)) {
+      return wait(Math.max(2800, text.length * 90));
+    }
+    return ensureVoices().then(function (voices) {
+      return new Promise(function (resolve) {
+        try {
+          speechSynthesis.cancel();
+          var u = new SpeechSynthesisUtterance(text);
+          u.lang = 'ru-RU';
+          u.rate = 0.85;
+          u.pitch = 1.05;
+          var ru = voices.filter(function (v) { return v.lang && v.lang.toLowerCase().indexOf('ru') === 0; })[0];
+          if (ru) u.voice = ru;
+          var settled = false;
+          u.onend = function () { if (!settled) { settled = true; resolve(); } };
+          u.onerror = function () { if (!settled) { settled = true; resolve(); } };
+          speechSynthesis.speak(u);
+          setTimeout(function () { if (!settled) { settled = true; resolve(); } }, 6000);
+        } catch (e) {
+          resolve();
+        }
+      });
+    });
+  }
+
+  function goTo(i, userInitiated) {
+    idx = ((i % TOTAL) + TOTAL) % TOTAL;
+    renderSlide(idx);
+    if (userInitiated && 'speechSynthesis' in window) speechSynthesis.cancel();
+  }
+
+  function stopPlayback() {
+    playing = false;
+    gen++;
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    playBtn.textContent = '▶ Начать';
+    elStatus.textContent = 'На паузе. Нажмите «Начать», чтобы продолжить.';
+  }
+
+  function startPlayback() {
+    if (playing) return;
+    playing = true;
+    playBtn.textContent = '⏸ Пауза';
+    runLoop(++gen);
+  }
+
+  function runLoop(myGen) {
+    if (myGen !== gen || !playing) return;
+    renderSlide(idx);
+    elStatus.textContent = 'Читаю: «' + LETTERS[idx].voice + '»…';
+    speak(LETTERS[idx].voice).then(function () {
+      if (myGen !== gen || !playing) return;
+      elStatus.textContent = 'Пауза перед следующей буквой…';
+      return wait(1400);
+    }).then(function () {
+      if (myGen !== gen || !playing) return;
+      idx = (idx + 1) % TOTAL;
+      if (idx === 0) {
+        elStatus.textContent = 'Азбука пройдена! Начинаем сначала.';
+      }
+      runLoop(myGen);
+    });
+  }
+
+  playBtn.addEventListener('click', function () {
+    if (playing) stopPlayback(); else startPlayback();
+  });
+
+  document.getElementById('prevBtn').addEventListener('click', function () {
+    stopPlayback();
+    goTo(idx - 1, true);
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', function () {
+    stopPlayback();
+    goTo(idx + 1, true);
+  });
+
+  muteBtn.addEventListener('click', function () {
+    muted = !muted;
+    muteBtn.textContent = muted ? '🔇' : '🔊';
+    muteBtn.setAttribute('aria-label', muted ? 'Включить озвучку' : 'Выключить озвучку');
+    if (muted && 'speechSynthesis' in window) speechSynthesis.cancel();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { stopPlayback(); goTo(idx - 1, true); }
+    if (e.key === 'ArrowRight') { stopPlayback(); goTo(idx + 1, true); }
+    if (e.key === ' ') { e.preventDefault(); if (playing) stopPlayback(); else startPlayback(); }
+  });
+
+  renderSlide(0);
+  if (!('speechSynthesis' in window)) {
+    elStatus.textContent = 'Озвучка не поддерживается этим браузером — буквы всё равно будут сменяться медленно.';
+  }
+})();
+</script>
+
+</body></html>

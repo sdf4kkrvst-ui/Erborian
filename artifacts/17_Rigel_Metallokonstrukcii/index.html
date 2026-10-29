@@ -1,0 +1,1060 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
+<title>Ригель Металлоконструкции</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#E7EAEC;
+  --surface:#F2F5F6;
+  --surface-2:#DBE1E4;
+  --ink:#11161A;
+  --ink-2:#47545E;
+  --line:#C2CBD0;
+  --line-2:#ACB8BF;
+  --steel:#4C5E6A;
+  --zinc:#83949F;
+  --signal:#D8A600;
+  --signal-ink:#11161A;
+  --oxide:#9B4126;
+
+  /* плита — одинаковая в обеих темах */
+  --plate:#0A0D0F;
+  --plate-2:#141A1E;
+  --plate-line:#242E34;
+  --plate-ink:#E8EEF1;
+  --plate-ink-2:#96A6B0;
+  --plate-signal:#F5C518;
+
+  --f-display:"Oswald","Arial Narrow",Impact,sans-serif;
+  --f-body:"Golos Text","Segoe UI",Roboto,Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0C1013;
+    --surface:#141A1E;
+    --surface-2:#1D252A;
+    --ink:#E6ECEF;
+    --ink-2:#94A3AD;
+    --line:#263036;
+    --line-2:#38444B;
+    --steel:#92A8B6;
+    --zinc:#5F717C;
+    --signal:#F5C518;
+    --signal-ink:#11161A;
+    --oxide:#CB6541;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0C1013;
+  --surface:#141A1E;
+  --surface-2:#1D252A;
+  --ink:#E6ECEF;
+  --ink-2:#94A3AD;
+  --line:#263036;
+  --line-2:#38444B;
+  --steel:#92A8B6;
+  --zinc:#5F717C;
+  --signal:#F5C518;
+  --signal-ink:#11161A;
+  --oxide:#CB6541;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--f-body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--f-display);font-weight:600;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:24px}
+.mono{font-family:var(--f-mono)}
+
+/* ─────────── шапка ─────────── */
+.top{
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb,var(--paper) 90%,transparent);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+}
+.top-in{display:flex;align-items:center;gap:26px;height:64px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;margin-right:auto}
+.brand-name{font-family:var(--f-display);font-weight:700;font-size:19px;letter-spacing:.16em;text-transform:uppercase;display:block;line-height:1.1}
+.brand-sub{font-family:var(--f-mono);font-size:9px;letter-spacing:.18em;color:var(--zinc);text-transform:uppercase;display:block}
+.nav{display:none;gap:24px}
+@media (min-width:1000px){.nav{display:flex}}
+.nav a{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-2);text-decoration:none;padding-block:6px;border-bottom:1px solid transparent;
+  transition:color .18s,border-color .18s;
+}
+.nav a:hover{color:var(--ink);border-bottom-color:var(--signal)}
+.top-tel{font-family:var(--f-mono);font-size:13px;text-decoration:none;white-space:nowrap}
+.top-tel:hover{color:var(--steel)}
+
+/* ─────────── кнопки ─────────── */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--f-display);font-size:14px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;
+  padding:14px 26px;text-decoration:none;border:1px solid transparent;cursor:pointer;
+  transition:transform .12s,background .18s,border-color .18s,color .18s;
+}
+.btn:active{transform:translateY(1px)}
+.btn-solid{background:var(--plate-signal);color:var(--signal-ink);border-color:var(--plate-signal)}
+.btn-solid:hover{background:#FFD84A}
+.btn-line{border-color:rgba(232,238,241,.32);color:var(--plate-ink);background:transparent}
+.btn-line:hover{border-color:var(--plate-ink);background:rgba(232,238,241,.07)}
+.btn-ink{border-color:var(--line-2);color:var(--ink);background:transparent}
+.btn-ink:hover{border-color:var(--ink);background:var(--surface)}
+
+/* ─────────── стальная плита ─────────── */
+.plate{
+  position:relative;color:var(--plate-ink);
+  background:
+    linear-gradient(102deg,rgba(255,255,255,.022) 0 2px,transparent 2px 5px),
+    radial-gradient(130% 100% at 18% -10%,#1C2429 0%,#10161A 46%,#080B0D 100%);
+  overflow:hidden;
+}
+.plate::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    repeating-linear-gradient(to right,rgba(146,168,182,.055) 0 1px,transparent 1px 84px),
+    repeating-linear-gradient(to bottom,rgba(146,168,182,.055) 0 1px,transparent 1px 84px);
+  mask-image:radial-gradient(120% 90% at 50% 30%,#000 0%,transparent 78%);
+}
+.crop{position:absolute;width:16px;height:16px;border:1px solid rgba(232,238,241,.28);pointer-events:none}
+.crop.tl{top:16px;left:16px;border-right:0;border-bottom:0}
+.crop.tr{top:16px;right:16px;border-left:0;border-bottom:0}
+.crop.bl{bottom:16px;left:16px;border-right:0;border-top:0}
+.crop.br{bottom:16px;right:16px;border-left:0;border-top:0}
+
+/* ─────────── герой ─────────── */
+.hero{padding-block:58px 0}
+.hero-grid{display:grid;gap:34px;align-items:center}
+@media (min-width:1000px){.hero-grid{grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:48px}}
+.eyebrow{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--plate-ink-2);display:flex;align-items:center;gap:12px;margin-bottom:24px;
+}
+.eyebrow::before{content:"";width:42px;height:2px;background:var(--plate-signal);flex:none}
+.hero h1{
+  font-size:clamp(40px,7.4vw,86px);line-height:.93;text-transform:uppercase;
+  font-weight:700;letter-spacing:-.01em;
+}
+.hero h1 i{font-style:normal;display:block;color:var(--plate-ink-2);font-weight:400}
+.hero h1 u{text-decoration:none;color:var(--plate-signal)}
+.hero-lead{margin-top:26px;font-size:17px;line-height:1.6;color:var(--plate-ink-2);max-width:52ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.stage{position:relative;width:100%;aspect-ratio:4/3;min-height:300px}
+@media (min-width:1000px){.stage{aspect-ratio:auto;height:min(58vh,470px)}}
+.stage canvas{display:block;width:100%;height:100%}
+.stage-tag{
+  position:absolute;left:0;bottom:2px;font-family:var(--f-mono);font-size:10px;
+  letter-spacing:.12em;color:var(--plate-ink-2);text-transform:uppercase;
+}
+.ribbon{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  border-top:1px solid var(--plate-line);margin-top:44px;
+}
+@media (min-width:760px){.ribbon{grid-template-columns:repeat(4,1fr)}}
+.rib{padding:20px 20px 22px 0;border-bottom:1px solid var(--plate-line)}
+@media (min-width:760px){
+  .rib{border-bottom:0;border-right:1px solid var(--plate-line);padding-left:22px}
+  .rib:first-child{padding-left:0}
+  .rib:last-child{border-right:0}
+}
+.rib-v{font-family:var(--f-display);font-size:clamp(28px,3.4vw,38px);font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.rib-v span{font-size:14px;color:var(--plate-ink-2);margin-left:4px;font-weight:500}
+.rib-k{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--plate-ink-2);margin-top:10px}
+
+/* лента маркировки */
+.mark-band{
+  border-top:1px solid var(--plate-line);background:rgba(0,0,0,.34);
+  display:flex;gap:0;flex-wrap:wrap;overflow:hidden;
+}
+.mark-band b{
+  font-family:var(--f-mono);font-weight:400;font-size:10.5px;letter-spacing:.16em;
+  color:var(--plate-ink-2);padding:13px 20px;border-right:1px solid var(--plate-line);white-space:nowrap;
+}
+.mark-band b em{font-style:normal;color:var(--plate-signal)}
+
+/* ─────────── листы ─────────── */
+.sheet{padding-block:88px;border-top:1px solid var(--line)}
+.sheet-head{display:grid;gap:14px;margin-bottom:32px}
+@media (min-width:900px){.sheet-head{grid-template-columns:120px 1fr;gap:28px;align-items:start}}
+.sheet-no{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;color:var(--zinc);
+  border-top:2px solid var(--signal);padding-top:9px;
+}
+.sheet-head h2{font-size:clamp(27px,3.6vw,42px);text-transform:uppercase;letter-spacing:.01em;line-height:1.02}
+.sheet-note{font-size:15.5px;color:var(--ink-2);max-width:64ch;line-height:1.65;margin-top:14px}
+.sheet-body{display:block}
+@media (min-width:900px){.sheet-body{padding-left:148px}}
+
+/* ─────────── профили ─────────── */
+.profiles{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line)}
+@media (min-width:700px){.profiles{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1040px){.profiles{grid-template-columns:repeat(5,1fr)}}
+.prof{
+  border-bottom:1px solid var(--line);border-right:1px solid var(--line);
+  padding:22px 18px 18px;display:flex;flex-direction:column;gap:14px;
+}
+.prof:nth-child(2n){border-right:0}
+@media (min-width:700px){
+  .prof{border-right:1px solid var(--line)}
+  .prof:nth-child(2n){border-right:1px solid var(--line)}
+  .prof:nth-child(3n){border-right:0}
+}
+@media (min-width:1040px){
+  .prof:nth-child(3n){border-right:1px solid var(--line)}
+  .prof:nth-child(5n){border-right:0}
+}
+.prof svg{display:block;width:100%;height:132px}
+.prof-fill{fill:var(--steel)}
+.prof-stroke{fill:none;stroke:var(--steel);stroke-width:2.6}
+.prof-name{font-family:var(--f-display);font-size:15px;letter-spacing:.05em;text-transform:uppercase}
+.prof-spec{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-2);margin-top:4px;letter-spacing:.03em}
+
+/* ─────────── номенклатура ─────────── */
+.items{display:grid}
+@media (min-width:820px){.items{grid-template-columns:repeat(2,1fr);column-gap:52px}}
+.item{border-top:1px solid var(--line);padding:26px 0 30px;display:flex;flex-direction:column;gap:10px}
+.item-mark{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.15em;color:var(--oxide);text-transform:uppercase}
+.item h3{font-size:22px;text-transform:uppercase;letter-spacing:.03em}
+.item p{color:var(--ink-2);font-size:15px;max-width:50ch}
+.item dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:8px 0 0;
+  font-family:var(--f-mono);font-size:11.5px;font-variant-numeric:tabular-nums}
+.item dt{color:var(--zinc);letter-spacing:.05em}
+.item dd{margin:0}
+
+/* ─────────── цех ─────────── */
+.plant{display:grid;gap:44px}
+@media (min-width:960px){.plant{grid-template-columns:1.15fr 1fr;gap:56px;align-items:start}}
+.chart{border:1px solid var(--line);background:var(--surface);padding:22px 20px 16px}
+.chart h3{font-family:var(--f-mono);font-weight:500;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-2);margin-bottom:18px}
+.chart svg{display:block;width:100%;height:auto}
+.grid-l{stroke:var(--line);stroke-width:1}
+.bar{fill:var(--steel)}
+.bar-hi{fill:var(--signal)}
+.ax{font-family:var(--f-mono);font-size:10px;fill:var(--ink-2)}
+.equip{display:flex;flex-direction:column}
+.equip-row{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.equip-row:first-child{border-top:1px solid var(--line)}
+.equip-n{font-family:var(--f-mono);font-size:11px;color:var(--zinc);flex:none;width:24px}
+.equip-t{font-size:15px}
+.equip-t b{font-weight:600}
+.equip-t i{font-style:normal;color:var(--ink-2);display:block;font-size:13.5px;margin-top:2px}
+
+/* ─────────── циклограмма ─────────── */
+.gantt{border:1px solid var(--line);background:var(--surface);padding:24px 22px 18px;overflow-x:auto}
+.gantt-in{min-width:640px}
+.g-row{display:grid;grid-template-columns:200px 1fr;gap:18px;align-items:center;padding:9px 0}
+.g-name{font-size:14.5px}
+.g-name b{display:block;font-weight:600}
+.g-name i{font-style:normal;font-family:var(--f-mono);font-size:10.5px;color:var(--zinc);letter-spacing:.06em}
+.g-track{position:relative;height:22px;background:repeating-linear-gradient(to right,var(--line) 0 1px,transparent 1px 11.111%)}
+.g-bar{position:absolute;top:3px;height:16px;background:var(--steel);display:flex;align-items:center;padding-left:9px}
+.g-bar span{font-family:var(--f-mono);font-size:10px;color:var(--surface);letter-spacing:.04em;white-space:nowrap}
+.g-bar.acc{background:var(--signal)}
+.g-bar.acc span{color:var(--signal-ink)}
+.g-axis{display:grid;grid-template-columns:200px 1fr;gap:18px;margin-top:10px;border-top:1px solid var(--line);padding-top:8px}
+.g-ticks{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:10px;color:var(--zinc)}
+
+/* ─────────── объекты ─────────── */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:680px;background:var(--surface)}
+th,td{text-align:left;padding:15px 18px;border-bottom:1px solid var(--line)}
+th{font-family:var(--f-mono);font-weight:500;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-2);background:var(--surface-2)}
+td{font-size:14.5px}
+td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:var(--surface-2)}
+
+/* ─────────── конфигуратор ─────────── */
+.cfg{padding-block:82px}
+.cfg-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:18px 28px;margin-bottom:34px}
+.cfg-head h2{font-size:clamp(27px,3.6vw,42px);text-transform:uppercase;color:var(--plate-ink)}
+.cfg-no{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;color:var(--plate-ink-2);border-top:2px solid var(--plate-signal);padding-top:9px}
+.cfg-note{font-size:15px;color:var(--plate-ink-2);max-width:60ch;margin-top:6px}
+.cfg-grid{display:grid;gap:26px}
+@media (min-width:980px){.cfg-grid{grid-template-columns:320px minmax(0,1fr);gap:34px;align-items:stretch}}
+.panel{border:1px solid var(--plate-line);background:rgba(8,11,13,.6);padding:22px 20px;display:flex;flex-direction:column;gap:18px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--plate-ink-2)}
+.field select{
+  font-family:var(--f-body);font-size:15px;color:var(--plate-ink);background:#0F1418;
+  border:1px solid var(--plate-line);padding:11px 12px;width:100%;
+}
+.range-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.range-val{font-family:var(--f-mono);font-size:13.5px;color:var(--plate-signal);font-variant-numeric:tabular-nums}
+input[type="range"]{
+  -webkit-appearance:none;appearance:none;width:100%;height:2px;background:var(--plate-line);
+  outline-offset:6px;cursor:pointer;
+}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:16px;height:16px;background:var(--plate-signal);
+  border:0;cursor:pointer;margin-top:0;
+}
+input[type="range"]::-moz-range-thumb{width:16px;height:16px;background:var(--plate-signal);border:0;border-radius:0;cursor:pointer}
+.seg{display:flex;border:1px solid var(--plate-line)}
+.seg button{
+  flex:1;font-family:var(--f-mono);font-size:12px;padding:9px 4px;cursor:pointer;
+  background:transparent;color:var(--plate-ink-2);border:0;border-right:1px solid var(--plate-line);
+  transition:background .16s,color .16s;
+}
+.seg button:last-child{border-right:0}
+.seg button:hover{color:var(--plate-ink)}
+.seg button[aria-pressed="true"]{background:var(--plate-signal);color:var(--signal-ink)}
+.view{border:1px solid var(--plate-line);background:rgba(8,11,13,.45);position:relative;min-height:360px}
+.view canvas{display:block;width:100%;height:100%}
+.view-tag{position:absolute;top:14px;left:16px;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--plate-ink-2)}
+.out{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--plate-line);border-top:0}
+@media (min-width:700px){.out{grid-template-columns:repeat(4,1fr)}}
+.out-cell{padding:16px 18px;border-right:1px solid var(--plate-line);border-bottom:1px solid var(--plate-line)}
+.out-cell:nth-child(2n){border-right:0}
+@media (min-width:700px){
+  .out-cell{border-bottom:0}
+  .out-cell:nth-child(2n){border-right:1px solid var(--plate-line)}
+  .out-cell:nth-child(4n){border-right:0}
+}
+.out-k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--plate-ink-2)}
+.out-v{font-family:var(--f-display);font-size:24px;font-weight:600;margin-top:7px;font-variant-numeric:tabular-nums;color:var(--plate-ink)}
+.out-v.hi{color:var(--plate-signal)}
+.cfg-foot{display:flex;flex-wrap:wrap;gap:18px 26px;align-items:center;justify-content:space-between;margin-top:26px}
+.cfg-disc{font-size:12.5px;color:var(--plate-ink-2);max-width:58ch;line-height:1.55}
+
+/* ─────────── стандарты ─────────── */
+.std{display:grid}
+@media (min-width:760px){.std{grid-template-columns:repeat(2,1fr);column-gap:52px}}
+.std-row{display:flex;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.std-code{font-family:var(--f-mono);font-size:11.5px;color:var(--steel);flex:none;width:128px}
+.std-t{font-size:14.5px}
+
+/* ─────────── призыв и штамп ─────────── */
+.cta{padding-block:70px;display:grid;gap:26px}
+@media (min-width:860px){.cta{grid-template-columns:1.5fr auto;align-items:center;gap:48px}}
+.cta h2{font-size:clamp(26px,3.4vw,38px);text-transform:uppercase;color:var(--plate-ink)}
+.cta p{color:var(--plate-ink-2);margin-top:12px;font-size:15.5px;max-width:54ch}
+.cta-btns{display:flex;flex-wrap:wrap;gap:12px}
+.stamp{border:1px solid var(--line-2);margin-block:70px;background:var(--surface)}
+.stamp-grid{display:grid;grid-template-columns:1fr}
+@media (min-width:780px){.stamp-grid{grid-template-columns:repeat(4,1fr)}}
+.cell{padding:17px 19px;border-bottom:1px solid var(--line)}
+@media (min-width:780px){
+  .cell{border-right:1px solid var(--line)}
+  .cell:nth-child(4n){border-right:0}
+  .cell:nth-last-child(-n+4){border-bottom:0}
+}
+.cell-k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--zinc)}
+.cell-v{margin-top:7px;font-size:15px;line-height:1.45}
+.cell-v a{text-decoration:none;border-bottom:1px solid var(--line-2)}
+.cell-v a:hover{border-bottom-color:var(--signal)}
+.stamp-title{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;justify-content:space-between;
+  padding:18px;border-top:1px solid var(--line-2);background:var(--surface-2)}
+.stamp-title b{font-family:var(--f-display);font-size:17px;letter-spacing:.15em;text-transform:uppercase}
+.stamp-title span{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-2)}
+</style>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+        <path d="M3 3h20v4h-8v12h8v4H3v-4h8V7H3z" fill="currentColor"></path>
+      </svg>
+      <span>
+        <span class="brand-name">Ригель</span>
+        <span class="brand-sub">завод металлоконструкций</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#prof">Прокат</a>
+      <a href="#nomen">Продукция</a>
+      <a href="#plant">Производство</a>
+      <a href="#cycle">Сроки</a>
+      <a href="#works">Объекты</a>
+      <a href="#cfg">Конфигуратор</a>
+    </nav>
+    <a class="top-tel" href="tel:+74991234567">+7 499 123-45-67</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ГЕРОЙ -->
+  <section class="plate">
+    <span class="crop tl"></span><span class="crop tr"></span>
+    <div class="wrap hero">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Проектирование КМ/КМД · Изготовление · Монтаж</p>
+          <h1>Стальной<br>каркас<br><u>под ключ</u><i>от расчёта до сдачи</i></h1>
+          <p class="hero-lead">Цех 6 400 м²: линия сборки-сварки балок, плазменная резка с ЧПУ, дробемёт и окрасочная камера. Варим по аттестованным НАКС технологиям и отгружаем комплект с маркировкой по КМД — на монтаже ничего не подгоняют по месту.</p>
+          <div class="hero-cta">
+            <a class="btn btn-solid" href="#cfg">Собрать каркас</a>
+            <a class="btn btn-line" href="#works">Смотреть объекты</a>
+          </div>
+        </div>
+        <div class="stage">
+          <canvas id="heroCanvas"></canvas>
+          <span class="stage-tag">Рама 30 × 8 м · шаг 6 м · 6 пролётов</span>
+        </div>
+      </div>
+      <div class="ribbon">
+        <div class="rib">
+          <div class="rib-v">36<span>м</span></div>
+          <div class="rib-k">Пролёт без колонн</div>
+        </div>
+        <div class="rib">
+          <div class="rib-v">1 200<span>т/мес</span></div>
+          <div class="rib-k">Мощность цеха</div>
+        </div>
+        <div class="rib">
+          <div class="rib-v">45<span>дней</span></div>
+          <div class="rib-k">Цикл на 300 тонн</div>
+        </div>
+        <div class="rib">
+          <div class="rib-v">14<span>лет</span></div>
+          <div class="rib-k">Гарантия на покрытие</div>
+        </div>
+      </div>
+    </div>
+    <div class="mark-band" aria-hidden="true">
+      <b>С245</b><b>С345</b><b>09Г2С</b><b>ГОСТ 23118-2019</b><b>ГОСТ 26020-83</b>
+      <b><em>НАКС</em></b><b>УЗК 100 %</b><b>Sa 2½</b><b>240 мкм</b><b>ГОСТ 14771-76</b><b>СП 16.13330</b>
+    </div>
+  </section>
+
+  <!-- ПРОКАТ -->
+  <section class="wrap sheet" id="prof" style="border-top:0">
+    <div class="sheet-head">
+      <div class="sheet-no">Л-01 · Прокат</div>
+      <div>
+        <h2>С чем работаем каждый день</h2>
+        <p class="sheet-note">Сечения показаны в одном масштабе — так видно, почему замена двутавра на ферму меняет массу каркаса в полтора раза. Склад держим по ходовым позициям, остальное закупаем под заказ за 3–5 дней.</p>
+      </div>
+    </div>
+    <div class="profiles">
+      <div class="prof">
+        <svg viewBox="0 0 120 132" role="img" aria-label="Сечение двутавра 40Б1">
+          <path class="prof-fill" d="M37 12 H83 V15.2 H61 V118.8 H83 V122 H37 V118.8 H59 V15.2 H37 Z"></path>
+        </svg>
+        <div>
+          <div class="prof-name">Двутавр 40Б1</div>
+          <div class="prof-spec">392 × 165 · 48,1 кг/м</div>
+        </div>
+      </div>
+      <div class="prof">
+        <svg viewBox="0 0 120 132" role="img" aria-label="Сечение швеллера 24П">
+          <path class="prof-fill" d="M47.5 55 H72.5 V57.5 H49.1 V119.5 H72.5 V122 H47.5 Z"></path>
+        </svg>
+        <div>
+          <div class="prof-name">Швеллер 24П</div>
+          <div class="prof-spec">240 × 90 · 24,0 кг/м</div>
+        </div>
+      </div>
+      <div class="prof">
+        <svg viewBox="0 0 120 132" role="img" aria-label="Сечение равнополочного уголка 100 на 100 на 8">
+          <path class="prof-fill" d="M46 94 H48.24 V119.76 H74 V122 H46 Z"></path>
+        </svg>
+        <div>
+          <div class="prof-name">Уголок 100×100</div>
+          <div class="prof-spec">толщина 8 · 12,3 кг/м</div>
+        </div>
+      </div>
+      <div class="prof">
+        <svg viewBox="0 0 120 132" role="img" aria-label="Сечение профильной трубы 160 на 160 на 6">
+          <path class="prof-fill" fill-rule="evenodd" d="M37.5 77 H82.5 V122 H37.5 Z M39.2 78.7 H80.8 V120.3 H39.2 Z"></path>
+        </svg>
+        <div>
+          <div class="prof-name">Труба 160×160</div>
+          <div class="prof-spec">стенка 6 · 28,3 кг/м</div>
+        </div>
+      </div>
+      <div class="prof">
+        <svg viewBox="0 0 120 132" role="img" aria-label="Сечение С-профиля ЛСТК 200 на 70 на 2">
+          <path class="prof-stroke" d="M72 71 V66 H50 V122 H72 V117"></path>
+        </svg>
+        <div>
+          <div class="prof-name">С-профиль ЛСТК</div>
+          <div class="prof-spec">200 × 70 × 2 · 3,8 кг/м</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- НОМЕНКЛАТУРА -->
+  <section class="wrap sheet" id="nomen">
+    <div class="sheet-head">
+      <div class="sheet-no">Л-02 · Продукция</div>
+      <div>
+        <h2>Что мы изготавливаем</h2>
+        <p class="sheet-note">Четыре группы закрывают девять заказов из десяти. Нестандарт считаем отдельно — от опорных мачт до бункеров и эстакад.</p>
+      </div>
+    </div>
+    <div class="sheet-body">
+      <div class="items">
+        <article class="item">
+          <span class="item-mark">Группа А</span>
+          <h3>Каркасы зданий из ЛМК</h3>
+          <p>Колонны, стропильные фермы, прогоны, связи и фахверк для складов, ангаров и производственных корпусов. Считаем под снеговой и ветровой район вашей площадки.</p>
+          <dl>
+            <dt>Пролёт</dt><dd>12–36 м</dd>
+            <dt>Шаг рам</dt><dd>6 / 9 / 12 м</dd>
+            <dt>Нагрузка</dt><dd>до 560 кг/м² по СП 20.13330</dd>
+          </dl>
+        </article>
+        <article class="item">
+          <span class="item-mark">Группа Б</span>
+          <h3>Балки и фермы</h3>
+          <p>Сварные двутавры переменного сечения, подкрановые балки, решётчатые фермы. Сборка на линии с автоматической сваркой под флюсом, швы проверяем ультразвуком.</p>
+          <dl>
+            <dt>Высота стенки</dt><dd>до 2 000 мм</dd>
+            <dt>Длина</dt><dd>до 24 м без стыка</dd>
+            <dt>Контроль</dt><dd>УЗК 100 % швов I категории</dd>
+          </dl>
+        </article>
+        <article class="item">
+          <span class="item-mark">Группа В</span>
+          <h3>ЛСТК и сэндвич-панели</h3>
+          <p>Тонкостенный оцинкованный профиль для быстровозводимых зданий, мансард и надстроек. Комплект приходит на площадку с готовой перфорацией под болты.</p>
+          <dl>
+            <dt>Толщина</dt><dd>1,0–3,0 мм</dd>
+            <dt>Цинк</dt><dd>275 г/м²</dd>
+            <dt>Монтаж</dt><dd>без сварки, на болтах</dd>
+          </dl>
+        </article>
+        <article class="item">
+          <span class="item-mark">Группа Г</span>
+          <h3>Ёмкости и нестандарт</h3>
+          <p>Резервуары, бункеры, силосы, технологические площадки и эстакады. Работаем по чертежам заказчика или разрабатываем КМД по вашему КМ.</p>
+          <dl>
+            <dt>Объём</dt><dd>до 400 м³</dd>
+            <dt>Марки стали</dt><dd>С245, С345, 09Г2С</dd>
+            <dt>Документы</dt><dd>КМД, паспорт, исполнительная</dd>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЦЕХ -->
+  <section class="wrap sheet" id="plant">
+    <div class="sheet-head">
+      <div class="sheet-no">Л-03 · Цех</div>
+      <div>
+        <h2>Мощности и оборудование</h2>
+        <p class="sheet-note">Пик октября — 1 040 тонн: логистический комплекс в Калуге отгрузили четырьмя партиями за 26 дней. Резерв мощности держим на уровне 15 % под срочные заказы.</p>
+      </div>
+    </div>
+    <div class="sheet-body">
+      <div class="plant">
+        <div class="chart">
+          <h3>Выпуск, тонн в месяц · 2025</h3>
+          <svg viewBox="0 0 560 292" role="img" aria-label="Выпуск по месяцам 2025 года: от 410 тонн в январе до 1040 тонн в октябре">
+            <line class="grid-l" x1="44" y1="20" x2="552" y2="20"></line>
+            <line class="grid-l" x1="44" y1="80" x2="552" y2="80"></line>
+            <line class="grid-l" x1="44" y1="140" x2="552" y2="140"></line>
+            <line class="grid-l" x1="44" y1="200" x2="552" y2="200"></line>
+            <text class="ax" x="38" y="24" text-anchor="end">1200</text>
+            <text class="ax" x="38" y="84" text-anchor="end">900</text>
+            <text class="ax" x="38" y="144" text-anchor="end">600</text>
+            <text class="ax" x="38" y="204" text-anchor="end">300</text>
+            <rect class="bar" x="50" y="178" width="30" height="82"></rect>
+            <rect class="bar" x="92" y="164" width="30" height="96"></rect>
+            <rect class="bar" x="134" y="146" width="30" height="114"></rect>
+            <rect class="bar" x="176" y="128" width="30" height="132"></rect>
+            <rect class="bar" x="218" y="112" width="30" height="148"></rect>
+            <rect class="bar" x="260" y="104" width="30" height="156"></rect>
+            <rect class="bar" x="302" y="96" width="30" height="164"></rect>
+            <rect class="bar" x="344" y="88" width="30" height="172"></rect>
+            <rect class="bar" x="386" y="76" width="30" height="184"></rect>
+            <rect class="bar-hi" x="428" y="52" width="30" height="208"></rect>
+            <rect class="bar" x="470" y="70" width="30" height="190"></rect>
+            <rect class="bar" x="512" y="98" width="30" height="162"></rect>
+            <text class="ax" x="443" y="46" text-anchor="middle">1040</text>
+            <line class="grid-l" x1="44" y1="260" x2="552" y2="260"></line>
+            <text class="ax" x="65" y="280" text-anchor="middle">янв</text>
+            <text class="ax" x="149" y="280" text-anchor="middle">мар</text>
+            <text class="ax" x="233" y="280" text-anchor="middle">май</text>
+            <text class="ax" x="317" y="280" text-anchor="middle">июл</text>
+            <text class="ax" x="401" y="280" text-anchor="middle">сен</text>
+            <text class="ax" x="485" y="280" text-anchor="middle">ноя</text>
+          </svg>
+        </div>
+        <div class="equip">
+          <div class="equip-row"><span class="equip-n">01</span><span class="equip-t"><b>Линия сборки-сварки двутавра</b><i>Сварка под флюсом, высота стенки до 2 000 мм</i></span></div>
+          <div class="equip-row"><span class="equip-n">02</span><span class="equip-t"><b>Плазменная резка с ЧПУ</b><i>Лист до 40 мм, раскрой прямо из модели КМД</i></span></div>
+          <div class="equip-row"><span class="equip-n">03</span><span class="equip-t"><b>Сверлильно-фрезерный портал</b><i>Отверстия под высокопрочные болты ГОСТ Р 52644</i></span></div>
+          <div class="equip-row"><span class="equip-n">04</span><span class="equip-t"><b>Дробемётная камера</b><i>Подготовка поверхности до степени Sa 2½</i></span></div>
+          <div class="equip-row"><span class="equip-n">05</span><span class="equip-t"><b>Окрасочно-сушильная камера</b><i>Элементы до 24 м, покрытие до 240 мкм</i></span></div>
+          <div class="equip-row"><span class="equip-n">06</span><span class="equip-t"><b>Козловые краны 2 × 32 т</b><i>Погрузка на транспорт без перецепки</i></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЦИКЛОГРАММА -->
+  <section class="wrap sheet" id="cycle">
+    <div class="sheet-head">
+      <div class="sheet-no">Л-04 · Сроки</div>
+      <div>
+        <h2>Цикл производства</h2>
+        <p class="sheet-note">Заказ на 300 тонн: от подписания до передачи каркаса монтажникам — 45 рабочих дней. Этапы идут внахлёст, поэтому первые партии уезжают на площадку раньше, чем закончится сварка.</p>
+      </div>
+    </div>
+    <div class="sheet-body">
+      <div class="gantt">
+        <div class="gantt-in">
+          <div class="g-row"><span class="g-name"><b>Обмеры и КМ</b><i>дни 0–5</i></span><span class="g-track"><span class="g-bar" style="left:0%;width:11.1%"><span>5 д</span></span></span></div>
+          <div class="g-row"><span class="g-name"><b>Деталировка КМД</b><i>дни 4–14</i></span><span class="g-track"><span class="g-bar" style="left:8.9%;width:22.2%"><span>10 д</span></span></span></div>
+          <div class="g-row"><span class="g-name"><b>Раскрой на ЧПУ</b><i>дни 12–22</i></span><span class="g-track"><span class="g-bar" style="left:26.7%;width:22.2%"><span>10 д</span></span></span></div>
+          <div class="g-row"><span class="g-name"><b>Сборка и сварка</b><i>дни 16–36</i></span><span class="g-track"><span class="g-bar acc" style="left:35.6%;width:44.4%"><span>20 д · УЗК швов</span></span></span></div>
+          <div class="g-row"><span class="g-name"><b>Дробемёт и окраска</b><i>дни 26–40</i></span><span class="g-track"><span class="g-bar" style="left:57.8%;width:31.1%"><span>14 д</span></span></span></div>
+          <div class="g-row"><span class="g-name"><b>Маркировка и отгрузка</b><i>дни 30–45</i></span><span class="g-track"><span class="g-bar" style="left:66.7%;width:33.3%"><span>4 партии</span></span></span></div>
+          <div class="g-axis">
+            <span></span>
+            <span class="g-ticks"><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span><span>35</span><span>40</span><span>45 дней</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОБЪЕКТЫ -->
+  <section class="wrap sheet" id="works">
+    <div class="sheet-head">
+      <div class="sheet-no">Л-05 · Объекты</div>
+      <div>
+        <h2>Сданные объекты</h2>
+        <p class="sheet-note">Пять из тридцати двух за последние три года. По каждому объекту готовы показать КМД, паспорта и фотоотчёт с монтажа.</p>
+      </div>
+    </div>
+    <div class="sheet-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Объект</th><th scope="col">Регион</th>
+              <th scope="col">Масса, т</th><th scope="col">Пролёт, м</th><th scope="col">Сдан</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Логистический комплекс, 18 400 м²</td><td>Калужская обл.</td><td class="num">1 040</td><td class="num">30</td><td class="num">2025</td></tr>
+            <tr><td>Цех металлообработки с кран-балкой 20 т</td><td>Тула</td><td class="num">612</td><td class="num">24</td><td class="num">2025</td></tr>
+            <tr><td>Склад напольного хранения зерна</td><td>Воронежская обл.</td><td class="num">388</td><td class="num">36</td><td class="num">2024</td></tr>
+            <tr><td>Крытый паркинг на 240 мест</td><td>Москва</td><td class="num">742</td><td class="num">16</td><td class="num">2024</td></tr>
+            <tr><td>Эстакада технологических трубопроводов</td><td>Рязань</td><td class="num">205</td><td class="num">12</td><td class="num">2023</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- КОНФИГУРАТОР -->
+  <section class="plate" id="cfg">
+    <span class="crop tl"></span><span class="crop br"></span>
+    <div class="wrap cfg">
+      <div class="cfg-head">
+        <div class="cfg-no">Л-06 · Расчёт</div>
+        <div>
+          <h2>Соберите свой каркас</h2>
+          <p class="cfg-note">Задайте габариты — рама перестроится, а масса и стоимость пересчитаются по укрупнённым нормам расхода металла.</p>
+        </div>
+      </div>
+      <div class="cfg-grid">
+        <div class="panel">
+          <div class="field">
+            <label for="type">Тип здания</label>
+            <select id="type">
+              <option value="28">Навес, открытая площадка</option>
+              <option value="42" selected>Склад, ангар</option>
+              <option value="58">Цех с кран-балкой</option>
+              <option value="95">Многоэтажный каркас</option>
+            </select>
+          </div>
+          <div class="field">
+            <div class="range-head"><label for="span">Пролёт</label><span class="range-val" id="spanVal">30 м</span></div>
+            <input type="range" id="span" min="12" max="36" step="3" value="30">
+          </div>
+          <div class="field">
+            <div class="range-head"><label for="height">Высота до низа фермы</label><span class="range-val" id="heightVal">8,0 м</span></div>
+            <input type="range" id="height" min="4" max="14" step="0.5" value="8">
+          </div>
+          <div class="field">
+            <label for="bays">Шаг рам</label>
+            <div class="seg" id="bays" role="group" aria-label="Шаг рам">
+              <button type="button" data-step="6" aria-pressed="true">6 м</button>
+              <button type="button" data-step="9" aria-pressed="false">9 м</button>
+              <button type="button" data-step="12" aria-pressed="false">12 м</button>
+            </div>
+          </div>
+          <div class="field">
+            <div class="range-head"><label for="count">Число пролётов по длине</label><span class="range-val" id="countVal">6 → 36 м</span></div>
+            <input type="range" id="count" min="3" max="18" step="1" value="6">
+          </div>
+          <div class="field">
+            <label for="scope">Объём работ</label>
+            <select id="scope">
+              <option value="fab">Только изготовление</option>
+              <option value="full" selected>Изготовление и монтаж</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="view">
+          <span class="view-tag" id="viewTag">Схема каркаса · вид 3/4</span>
+          <canvas id="cfgCanvas"></canvas>
+        </div>
+      </div>
+
+      <div class="out" aria-live="polite">
+        <div class="out-cell"><div class="out-k">Площадь застройки</div><div class="out-v" id="outArea">—</div></div>
+        <div class="out-cell"><div class="out-k">Масса конструкций</div><div class="out-v" id="outMass">—</div></div>
+        <div class="out-cell"><div class="out-k">Срок изготовления</div><div class="out-v" id="outDays">—</div></div>
+        <div class="out-cell"><div class="out-k">Ориентировочно</div><div class="out-v hi" id="outPrice">—</div></div>
+      </div>
+
+      <div class="cfg-foot">
+        <p class="cfg-disc">Расход металла считаем по типу здания с поправкой на высоту; цены на прокат обновляем еженедельно. Фундаменты, ограждающие конструкции и ворота в сумму не входят.</p>
+        <a class="btn btn-solid" href="mailto:zakaz@rigel-mk.ru">Запросить точную смету</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- СТАНДАРТЫ -->
+  <section class="wrap sheet" id="std" style="border-top:0">
+    <div class="sheet-head">
+      <div class="sheet-no">Л-07 · Нормы</div>
+      <div>
+        <h2>По каким документам работаем</h2>
+        <p class="sheet-note">Сварщики и технологии аттестованы НАКС. На каждую партию выдаём сертификаты на прокат, паспорт конструкций и исполнительную документацию — комплект стройнадзор принимает без замечаний.</p>
+      </div>
+    </div>
+    <div class="sheet-body">
+      <div class="std">
+        <div class="std-row"><span class="std-code">ГОСТ 23118-2019</span><span class="std-t">Конструкции стальные строительные. Общие технические условия</span></div>
+        <div class="std-row"><span class="std-code">ГОСТ 26020-83</span><span class="std-t">Двутавры с параллельными гранями полок</span></div>
+        <div class="std-row"><span class="std-code">ГОСТ 14771-76</span><span class="std-t">Сварка в защитном газе. Соединения сварные</span></div>
+        <div class="std-row"><span class="std-code">ГОСТ Р 52644</span><span class="std-t">Высокопрочные болты с большим размером под ключ</span></div>
+        <div class="std-row"><span class="std-code">СП 16.13330</span><span class="std-t">Стальные конструкции. Расчёт несущей способности</span></div>
+        <div class="std-row"><span class="std-code">СП 20.13330</span><span class="std-t">Нагрузки и воздействия: снег, ветер, крановые</span></div>
+        <div class="std-row"><span class="std-code">ГОСТ 9.402-2004</span><span class="std-t">Подготовка поверхности перед окрашиванием</span></div>
+        <div class="std-row"><span class="std-code">РД 03-606-03</span><span class="std-t">Визуальный и измерительный контроль сварных швов</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРИЗЫВ -->
+  <section class="plate">
+    <span class="crop bl"></span><span class="crop tr"></span>
+    <div class="wrap cta">
+      <div>
+        <h2>Пришлите КМ или эскиз</h2>
+        <p>Инженер посмотрит чертёж, проверит металлоёмкость и вернётся со сметой и графиком за один рабочий день. Чертежей нет — выедем на площадку и снимем размеры сами.</p>
+      </div>
+      <div class="cta-btns">
+        <a class="btn btn-solid" href="tel:+74991234567">Позвонить</a>
+        <a class="btn btn-line" href="mailto:zakaz@rigel-mk.ru">Отправить чертёж</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="stamp">
+    <div class="stamp-grid">
+      <div class="cell"><div class="cell-k">Телефон</div><div class="cell-v"><a href="tel:+74991234567">+7 499 123-45-67</a></div></div>
+      <div class="cell"><div class="cell-k">Почта</div><div class="cell-v"><a href="mailto:zakaz@rigel-mk.ru">zakaz@rigel-mk.ru</a></div></div>
+      <div class="cell"><div class="cell-k">Производство</div><div class="cell-v">Тульская обл., г. Узловая,<br>промзона «Восточная», 4</div></div>
+      <div class="cell"><div class="cell-k">Отгрузка</div><div class="cell-v">Пн–Сб, 08:00–20:00<br>заявки — круглосуточно</div></div>
+      <div class="cell"><div class="cell-k">Проектный отдел</div><div class="cell-v">КМ, КМД, расчёт в SCAD</div></div>
+      <div class="cell"><div class="cell-k">Аттестация</div><div class="cell-v">НАКС — сварщики и технологии</div></div>
+      <div class="cell"><div class="cell-k">География</div><div class="cell-v">ЦФО, ПФО, ЮФО — доставка своим транспортом</div></div>
+      <div class="cell"><div class="cell-k">Гарантия</div><div class="cell-v">5 лет на конструкции, 14 лет на покрытие</div></div>
+    </div>
+    <div class="stamp-title">
+      <b>Ригель · Завод металлоконструкций</b>
+      <span>Изготовление и монтаж стальных конструкций</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var C_MAIN   = "#D6E2E9";
+  var C_SECOND = "#7E919D";
+  var C_ACCENT = "#F5C518";
+  var C_DIM    = "#8FA0AA";
+
+  /* ── геометрия каркаса ── */
+  function build(L, H, step, n) {
+    var rise = L / 2 * Math.tan(9 * Math.PI / 180);
+    var half = L / 2;
+    var len = step * n;
+    var z0 = -len / 2;
+    var segs = [];
+    var i, z, zn, k;
+
+    function push(a, b, kind) { segs.push({ a: a, b: b, k: kind }); }
+
+    // 1. колонны
+    for (i = 0; i <= n; i++) {
+      z = z0 + i * step;
+      push([-half, 0, z], [-half, H, z], 0);
+      push([half, 0, z], [half, H, z], 0);
+    }
+    // 2. стропильные полурамы
+    for (i = 0; i <= n; i++) {
+      z = z0 + i * step;
+      push([-half, H, z], [0, H + rise, z], 0);
+      push([half, H, z], [0, H + rise, z], 0);
+    }
+    // 3. прогоны по скатам и коньку
+    var slope = [];
+    for (k = 0; k <= 3; k++) {
+      slope.push([-half + (k / 3) * half, H + (k / 3) * rise]);
+    }
+    for (k = 0; k < 3; k++) {
+      slope.push([half - (k / 3) * half, H + (k / 3) * rise]);
+    }
+    for (i = 0; i < n; i++) {
+      z = z0 + i * step; zn = z + step;
+      slope.forEach(function (p) { push([p[0], p[1], z], [p[0], p[1], zn], 1); });
+      // стеновые ригели
+      [H * 0.42, H * 0.78].forEach(function (y) {
+        push([-half, y, z], [-half, y, zn], 1);
+        push([half, y, z], [half, y, zn], 1);
+      });
+      // база
+      push([-half, 0, z], [-half, 0, zn], 1);
+      push([half, 0, z], [half, 0, zn], 1);
+    }
+    // 4. связи в крайних ячейках
+    [0, n - 1].forEach(function (i2) {
+      if (i2 < 0) { return; }
+      z = z0 + i2 * step; zn = z + step;
+      push([-half, 0, z], [-half, H, zn], 2);
+      push([-half, H, z], [-half, 0, zn], 2);
+      push([half, 0, z], [half, H, zn], 2);
+      push([half, H, z], [half, 0, zn], 2);
+      push([-half, H, z], [0, H + rise, zn], 2);
+      push([0, H + rise, z], [-half, H, zn], 2);
+      push([half, H, z], [0, H + rise, zn], 2);
+      push([0, H + rise, z], [half, H, zn], 2);
+    });
+
+    return { segs: segs, L: L, H: H, rise: rise, len: len, step: step, n: n };
+  }
+
+  /* ── рендерер ── */
+  function renderer(canvas, opts) {
+    var ctx = canvas.getContext("2d");
+    var model = null;
+    var yaw = opts.yaw, tilt = opts.tilt;
+    var drift = 0, progress = 1, raf = 0, animStart = 0, animating = false;
+
+    function rot(p, a, b) {
+      var ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
+      var x1 = p[0] * ca - p[2] * sa;
+      var z1 = p[0] * sa + p[2] * ca;
+      var y2 = p[1] * cb - z1 * sb;
+      var z2 = p[1] * sb + z1 * cb;
+      var f = 1400, d = 90;
+      var k = f / (f + z2 + d);
+      return [x1 * k, -y2 * k, z2];
+    }
+
+    function fitTransform(a) {
+      var minX = 1e9, maxX = -1e9, minY = 1e9, maxY = -1e9;
+      model.segs.forEach(function (s) {
+        [rot(s.a, a, tilt), rot(s.b, a, tilt)].forEach(function (p) {
+          if (p[0] < minX) { minX = p[0]; }
+          if (p[0] > maxX) { maxX = p[0]; }
+          if (p[1] < minY) { minY = p[1]; }
+          if (p[1] > maxY) { maxY = p[1]; }
+        });
+      });
+      var w = canvas.clientWidth, h = canvas.clientHeight;
+      var pad = opts.pad;
+      var sc = Math.min((w - pad * 2) / (maxX - minX || 1), (h - pad * 2) / (maxY - minY || 1));
+      return { sc: sc, ox: w / 2 - (minX + maxX) / 2 * sc, oy: h / 2 - (minY + maxY) / 2 * sc };
+    }
+
+    function draw() {
+      var w = canvas.clientWidth, h = canvas.clientHeight;
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
+        canvas.width = Math.round(w * dpr);
+        canvas.height = Math.round(h * dpr);
+      }
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+      if (!model) { return; }
+
+      var a = yaw + drift;
+      var t = fitTransform(yaw);
+      var zs = [];
+      model.segs.forEach(function (s) { zs.push(rot(s.a, a, tilt)[2]); });
+      var zMin = Math.min.apply(null, zs), zMax = Math.max.apply(null, zs);
+
+      var total = model.segs.length;
+      var shown = Math.round(progress * total);
+
+      ctx.lineCap = "round";
+      model.segs.forEach(function (s, i) {
+        var p = rot(s.a, a, tilt), q = rot(s.b, a, tilt);
+        var depth = ((p[2] + q[2]) / 2 - zMin) / ((zMax - zMin) || 1);
+        var fade = 1 - depth * 0.62;
+        ctx.beginPath();
+        ctx.moveTo(p[0] * t.sc + t.ox, p[1] * t.sc + t.oy);
+        ctx.lineTo(q[0] * t.sc + t.ox, q[1] * t.sc + t.oy);
+        if (i >= shown) {
+          /* разметка: каркас виден целиком, поверх неё «вычерчиваются» элементы */
+          ctx.strokeStyle = C_SECOND; ctx.lineWidth = 1; ctx.globalAlpha = 0.16;
+        } else if (s.k === 0) {
+          ctx.strokeStyle = C_MAIN; ctx.lineWidth = 1.9; ctx.globalAlpha = fade;
+        } else if (s.k === 1) {
+          ctx.strokeStyle = C_SECOND; ctx.lineWidth = 1; ctx.globalAlpha = fade * 0.85;
+        } else {
+          ctx.strokeStyle = C_ACCENT; ctx.lineWidth = 1; ctx.globalAlpha = fade * 0.8;
+        }
+        ctx.stroke();
+      });
+      ctx.globalAlpha = 1;
+
+      if (opts.dims && progress >= 1) { drawDims(t, a); }
+    }
+
+    function drawDims(t, a) {
+      var half = model.L / 2, zf = -model.len / 2;
+      function P(p) { var r = rot(p, a, tilt); return [r[0] * t.sc + t.ox, r[1] * t.sc + t.oy]; }
+      ctx.font = "11px 'JetBrains Mono', monospace";
+      ctx.strokeStyle = C_DIM;
+      ctx.fillStyle = C_DIM;
+      ctx.lineWidth = 1;
+      ctx.globalAlpha = .9;
+
+      function line(p1, p2, label, dx, dy) {
+        var A = P(p1), B = P(p2);
+        A = [A[0] + dx, A[1] + dy]; B = [B[0] + dx, B[1] + dy];
+        ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]); ctx.stroke();
+        [A, B].forEach(function (p) {
+          ctx.beginPath();
+          ctx.moveTo(p[0] - 3, p[1] - 3); ctx.lineTo(p[0] + 3, p[1] + 3); ctx.stroke();
+        });
+        var mx = (A[0] + B[0]) / 2, my = (A[1] + B[1]) / 2;
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        var tw = ctx.measureText(label).width;
+        ctx.clearRect(mx - tw / 2 - 5, my - 8, tw + 10, 16);
+        ctx.fillText(label, mx, my);
+      }
+      line([-half, 0, zf], [half, 0, zf], (model.L * 1000).toLocaleString("ru-RU"), 0, 30);
+      line([-half, 0, zf], [-half, model.H, zf], (model.H * 1000).toLocaleString("ru-RU"), -28, 0);
+      ctx.globalAlpha = 1;
+    }
+
+    function loop(ts) {
+      if (!animStart) { animStart = ts; }
+      var e = (ts - animStart) / 1000;
+      if (animating) {
+        progress = Math.min(1, e / 2.2);
+        if (progress >= 1) { animating = false; }
+      }
+      if (!REDUCED) { drift = Math.sin(ts / 5200) * 0.11; }
+      draw();
+      raf = requestAnimationFrame(loop);
+    }
+
+    return {
+      set: function (m, assemble) {
+        model = m;
+        if (assemble && !REDUCED) { progress = 0; animating = true; animStart = 0; }
+        else { progress = 1; animating = false; }
+        draw();
+      },
+      start: function () { if (!raf) { raf = requestAnimationFrame(loop); } },
+      redraw: draw
+    };
+  }
+
+  /* ── герой ── */
+  var heroCanvas = document.getElementById("heroCanvas");
+  var hero = renderer(heroCanvas, { yaw: -0.62, tilt: 0.2, pad: 34, dims: false });
+  hero.set(build(30, 8, 6, 6), true);
+  hero.start();
+
+  /* ── конфигуратор ── */
+  var nf = new Intl.NumberFormat("ru-RU");
+  var cfgCanvas = document.getElementById("cfgCanvas");
+  var cfg = renderer(cfgCanvas, { yaw: -0.72, tilt: 0.24, pad: 62, dims: true });
+
+  var elType = document.getElementById("type");
+  var elSpan = document.getElementById("span");
+  var elHeight = document.getElementById("height");
+  var elCount = document.getElementById("count");
+  var elScope = document.getElementById("scope");
+  var stepBtns = Array.prototype.slice.call(document.querySelectorAll("#bays button"));
+  var step = 6;
+
+  var PRICE = { metal: 62000, fab: 34000, paint: 9000, mount: 38000 };
+  var CAPACITY = 1200;
+
+  function update(assemble) {
+    var L = parseFloat(elSpan.value);
+    var H = parseFloat(elHeight.value);
+    var n = parseInt(elCount.value, 10);
+    var base = parseFloat(elType.value);
+
+    var rate = base * (1 + (H - 6) * 0.045);
+    if (rate < base * 0.75) { rate = base * 0.75; }
+    var area = L * step * n;
+    var mass = area * rate / 1000;
+    var mount = elScope.value === "full" ? mass * PRICE.mount : 0;
+    var total = mass * (PRICE.metal + PRICE.fab + PRICE.paint) + mount;
+    var days = Math.round(mass / CAPACITY * 22) + 18;
+
+    document.getElementById("spanVal").textContent = L + " м";
+    document.getElementById("heightVal").textContent = H.toFixed(1).replace(".", ",") + " м";
+    document.getElementById("countVal").textContent = n + " → " + (step * n) + " м";
+    document.getElementById("outArea").textContent = nf.format(area) + " м²";
+    document.getElementById("outMass").textContent = nf.format(Math.round(mass)) + " т";
+    document.getElementById("outDays").textContent = days + " дней";
+    document.getElementById("outPrice").textContent =
+      nf.format(Math.round(total * 0.92 / 100000) / 10).replace(".", ",") + " – " +
+      nf.format(Math.round(total * 1.08 / 100000) / 10).replace(".", ",") + " млн ₽";
+    document.getElementById("viewTag").textContent =
+      "Схема каркаса · " + L + " × " + (step * n) + " × " + H.toFixed(1).replace(".", ",") + " м";
+
+    cfg.set(build(L, H, step, n), assemble);
+  }
+
+  [elType, elSpan, elHeight, elCount, elScope].forEach(function (el) {
+    el.addEventListener("input", function () { update(false); });
+    el.addEventListener("change", function () { update(false); });
+  });
+  stepBtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      step = parseFloat(b.dataset.step);
+      stepBtns.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      update(false);
+    });
+  });
+
+  update(false);
+  cfg.start();
+
+  window.addEventListener("resize", function () { hero.redraw(); cfg.redraw(); });
+})();
+</script>
+
+</body></html>

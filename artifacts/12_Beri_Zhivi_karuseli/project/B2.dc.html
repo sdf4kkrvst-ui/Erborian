@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Что внутри — зоны</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Manrope:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#C4552A}a:hover{color:#9E3F1C}
+</style>
+</helmet>
+<div style="width: 1080px; height: 1350px; box-sizing: border-box; padding: 80px; background: #EFE1DA; color: #2A2A28; font-family: Manrope, sans-serif; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; justify-content: space-between; align-items: center; font-size: 26px; font-weight: 700; letter-spacing: 0.08em; color: #4A4E3E">
+<div>БЕРИ ЖИВИ</div>
+<div style="font-weight: 600; letter-spacing: 0; color: #6B6A66">2 / 4</div>
+</div>
+<h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 80px; line-height: 1.05; color: #4A4E3E">Что где</h2>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; flex-grow: 1">
+<div style="background: #F7EEE9; border-radius: 24px; padding: 44px; display: flex; flex-direction: column; gap: 18px">
+<div style="font-size: 30px; font-weight: 700; color: #C4552A">01</div>
+<div style="font-size: 46px; font-weight: 700; color: #2A2C2F">Прихожая</div>
+<div style="font-size: 30px; line-height: 1.4; color: #4F4E4A">Шкаф для верхней одежды и обуви — грязь остаётся у входа.</div>
+</div>
+<div style="background: #F7EEE9; border-radius: 24px; padding: 44px; display: flex; flex-direction: column; gap: 18px">
+<div style="font-size: 30px; font-weight: 700; color: #C4552A">02</div>
+<div style="font-size: 46px; font-weight: 700; color: #2A2C2F">Санузел</div>
+<div style="font-size: 30px; line-height: 1.4; color: #4F4E4A">Душ, раковина и место под стиральную машину.</div>
+</div>
+<div style="background: #F7EEE9; border-radius: 24px; padding: 44px; display: flex; flex-direction: column; gap: 18px">
+<div style="font-size: 30px; font-weight: 700; color: #C4552A">03</div>
+<div style="font-size: 46px; font-weight: 700; color: #2A2C2F">Кухня-гостиная</div>
+<div style="font-size: 30px; line-height: 1.4; color: #4F4E4A">Самая большая зона: кухня, обеденный стол и диван.</div>
+</div>
+<div style="background: #2A2C2F; border-radius: 24px; padding: 44px; display: flex; flex-direction: column; gap: 18px">
+<div style="font-size: 30px; font-weight: 700; color: #E39A73">04</div>
+<div style="font-size: 46px; font-weight: 700; color: #EFE1DA">Спальня</div>
+<div style="font-size: 30px; line-height: 1.4; color: #D9C9BE">Отдельная комната с дверью, а не диван в гостиной.</div>
+</div>
+</div>
+<div style="font-size: 24px; color: #6B6A66">Мебель и техника — в комплектации «Под ключ»</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1080,"height":1350}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

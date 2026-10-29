@@ -1,0 +1,606 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Табель водителей 1509</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F4F0; --surface:#FFFFFF; --surface-2:#F8F9F6; --ink:#1C2724; --muted:#5E6B67; --line:#D8DDD6;
+  --accent:#1F6B57; --accent-ink:#FFFFFF; --accent-soft:#E2EFEA;
+  --warn:#9A6A00; --warn-bg:#FFF4D6; --warn-line:#EBCB76;
+  --bad:#A63D32; --bad-bg:#FBE9E6;
+  --sans:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#111715; --surface:#18201D; --surface-2:#1D2622; --ink:#E3EAE6; --muted:#98A7A1; --line:#2C3833;
+    --accent:#5CC0A0; --accent-ink:#0D1412; --accent-soft:#1E332C;
+    --warn:#F0C865; --warn-bg:#2E2712; --warn-line:#5C4A1C;
+    --bad:#F08C80; --bad-bg:#35201D;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#111715; --surface:#18201D; --surface-2:#1D2622; --ink:#E3EAE6; --muted:#98A7A1; --line:#2C3833;
+  --accent:#5CC0A0; --accent-ink:#0D1412; --accent-soft:#1E332C;
+  --warn:#F0C865; --warn-bg:#2E2712; --warn-line:#5C4A1C;
+  --bad:#F08C80; --bad-bg:#35201D;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:22px}
+h1{font-size:28px;font-weight:700;letter-spacing:-.01em;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;max-width:62ch}
+.grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.stack{display:flex;flex-direction:column;gap:20px}
+.label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.drop{border:1.5px dashed var(--line);border-radius:8px;padding:22px 16px;text-align:center;cursor:pointer;background:var(--surface-2);transition:border-color .15s,background .15s}
+.drop:hover,.drop.over{border-color:var(--accent);background:var(--accent-soft)}
+.drop:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.drop strong{display:block;font-size:15px}
+.drop span{color:var(--muted);font-size:13px}
+.files{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.files li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;font-size:13px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface-2)}
+.files .name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.files .meta{color:var(--muted);font-family:var(--mono);font-size:12px;white-space:nowrap}
+.files .err{color:var(--bad)}
+.x{border:0;background:none;color:var(--muted);cursor:pointer;font-size:16px;line-height:1;padding:2px 4px;border-radius:4px}
+.x:hover{color:var(--bad)}
+.x:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+th{font-weight:600;color:var(--muted);font-size:12px}
+td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.rates input{width:78px;font:inherit;font-family:var(--mono);text-align:right;padding:4px 6px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--ink)}
+.rates td.col{font-family:var(--mono);color:var(--muted);width:28px;white-space:nowrap;font-size:12px}
+.scroll{overflow-x:auto}
+.btn{font:inherit;font-weight:600;border-radius:7px;padding:10px 18px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--accent);padding:5px 10px;font-size:13px}
+.kpis{display:flex;flex-wrap:wrap;gap:10px 28px;margin-bottom:14px}
+.kpi b{display:block;font-family:var(--mono);font-size:22px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi span{font-size:12px;color:var(--muted)}
+.pill{display:inline-block;font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:99px;background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn-line)}
+.pill.ok{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.msgs{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none;font-size:13px}
+.msgs li{padding:8px 10px;border-radius:6px;background:var(--warn-bg);border:1px solid var(--warn-line)}
+.msgs li.bad{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+.empty{color:var(--muted);font-size:14px;padding:6px 0 2px}
+.foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:16px}
+.status{font-size:13px;color:var(--muted)}
+.mono{font-family:var(--mono)}
+.muted{color:var(--muted)}
+details summary{cursor:pointer;font-weight:600;font-size:14px}
+details[open] summary{margin-bottom:10px}
+.ovr{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+select{font:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--ink)}
+td.flag{background:var(--warn-bg)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Табель водителей 1509</h1>
+      <p class="sub">Загрузите дневные реестры ОБИ за период. Суммы ТЭК пересчитаются по ставкам водителей, и получится табель: отдельный лист на каждого водителя и лист ИТОГО.</p>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="stack">
+      <section class="panel">
+        <p class="label">1. Реестры</p>
+        <div class="drop" id="drop" tabindex="0" role="button" aria-label="Выбрать файлы реестров">
+          <strong>Перетащите реестры сюда</strong>
+          <span>или нажмите, чтобы выбрать .xlsx (можно сразу все за полмесяца)</span>
+        </div>
+        <input type="file" id="fileInput" accept=".xlsx,.xls" multiple hidden>
+        <ul class="files" id="fileList"></ul>
+      </section>
+
+      <section class="panel">
+        <p class="label"><span>2. Ставки водителя</span><button class="btn ghost" id="resetRates" type="button">Сбросить</button></p>
+        <div class="scroll">
+        <table class="rates">
+          <thead><tr><th></th><th>Что</th><th class="n">ТЭК</th><th class="n">Водителю</th></tr></thead>
+          <tbody id="ratesBody"></tbody>
+        </table>
+        </div>
+        <details style="margin-top:14px" id="ovrBox">
+          <summary>Свои ставки для отдельных водителей</summary>
+          <div class="ovr">
+            <select id="ovrSelect" aria-label="Водитель"><option value="">Выберите водителя</option></select>
+            <button class="btn ghost" id="ovrAdd" type="button">Добавить</button>
+          </div>
+          <div class="scroll"><table id="ovrTable"></table></div>
+          <p class="muted" style="font-size:12.5px;margin:8px 0 0">Список водителей появится после загрузки реестров. Ставки запоминаются в этом браузере.</p>
+        </details>
+      </section>
+    </div>
+
+    <section class="panel" id="resultPanel">
+      <p class="label">3. Табель</p>
+      <div id="result"></div>
+      <div class="foot">
+        <span class="status" id="status"></span>
+        <button class="btn" id="download" type="button" disabled>Скачать табель .xlsx</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+<script>
+// Ядро: реестр ОБИ (ТЭК) -> строки табеля водителей. Работает в браузере и в node.
+(function (G) {
+  const DEFAULT_RATES = { C: 410, D: 640, G: 725, H: 990, J: 900, K: 1450, KM: 40, M: 200, N: 220 };
+  // Базовые суммы ТЭК -> колонка табеля
+  const BASES = {
+    620: { t: 'К', col: 'C', km: 'E' }, 960: { t: 'К', col: 'D', km: 'E' },
+    1100: { t: 'М', col: 'G', km: 'I' }, 1480: { t: 'М', col: 'H', km: 'I' },
+    1400: { t: 'С', col: 'J', km: 'L' }, 2185: { t: 'С', col: 'K', km: 'L' },
+  };
+  const KM_MULT = [60, 55], WT_MULT = 300, LIFT_MULT = 330;
+  const CANCEL_RE = /отмен|не доставлен|возврат|перенес|перенос/i;
+
+  function norm(s) { return String(s == null ? '' : s).replace(/\s+/g, ' ').trim(); }
+
+  function findCols(header) {
+    const H = header.map(norm);
+    const first = (name) => H.indexOf(name);
+    const starts = (p) => H.findIndex((h) => h.startsWith(p));
+    const pct = H.findIndex((h) => /% расхождения ТЭК/i.test(h));
+    let tek = H.findIndex((h) => /доставки ТЭК/i.test(h));
+    if (tek < 0 && pct > 0) tek = pct - 1;
+    const c = {
+      driver: first('Водитель'), status: first('Статус доставки'), date: first('Дата доставки'),
+      zayavka: first('№ заявки на доставку'), poruch: first('№ поручения ОБИ'),
+      vid: first('Вид доставки'), zone: first('Зона доставки'), comment: first('Комментарий к заявке'),
+      store: first('Магазин'),
+      lift: first('Стоимость услуг подъёма, руб.2'), wt: first('Доплата за вес > 100 кг'),
+      z3: first('Доплата за 3 зону'), total: first('Общая стоимость услуг доставки, руб.4'),
+      tek, tekNote: H.findIndex((h) => /^Комментарий ТЭК/i.test(h)),
+    };
+    const need = ['driver', 'date', 'poruch', 'vid'];
+    const miss = need.filter((k) => c[k] < 0);
+    return { c, miss };
+  }
+
+  function parseDate(v) {
+    if (v == null || v === '') return null;
+    if (v instanceof Date) return new Date(Date.UTC(v.getFullYear(), v.getMonth(), v.getDate()));
+    if (typeof v === 'number') { const d = new Date(Math.round((v - 25569) * 86400000)); return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())); }
+    const m = String(v).match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+    if (m) return new Date(Date.UTC(+m[3], +m[2] - 1, +m[1]));
+    return null;
+  }
+  const ymd = (d) => d.toISOString().slice(0, 10).replace(/-/g, '');
+  const num = (v) => { const n = typeof v === 'number' ? v : parseFloat(String(v).replace(',', '.')); return isFinite(n) ? n : 0; };
+
+  function zoneOf(zone) {
+    const z = norm(zone);
+    if (/MP1|Зона 1|Мск1/i.test(z)) return 1;
+    return 2;
+  }
+  function typeOf(vid) {
+    const v = norm(vid).toLowerCase();
+    if (v.startsWith('курьер')) return 'К';
+    if (v.startsWith('малогаб')) return 'М';
+    return 'С';
+  }
+  function colFor(t, z) { return { К: z === 1 ? 'C' : 'D', М: z === 1 ? 'G' : 'H', С: z === 1 ? 'J' : 'K' }[t]; }
+  const KMCOL = { К: 'E', М: 'I', С: 'L' };
+
+  // Разбор суммы ТЭК (число или формула) на части
+  function decompose(val, formula, ctx) {
+    const res = { base: null, km: 0, wt: 0, lift: 0, notes: [] };
+    let terms = [];
+    if (formula && /[*+]/.test(formula)) {
+      const f = String(formula).replace(/^=/, '').replace(/\s/g, '');
+      if (/[^0-9.*+,]/.test(f)) { res.notes.push('непонятная формула ТЭК: =' + f); return res; }
+      terms = f.split('+').filter(Boolean);
+    } else terms = [String(val)];
+    let plain = [];
+    for (const t of terms) {
+      if (t.includes('*')) {
+        const [a, b] = t.split('*').map(num);
+        const pick = (m) => (b === m ? a : a === m ? b : null);
+        let u;
+        if ((u = pick(60)) != null || (u = pick(55)) != null) res.km += u;
+        else if ((u = pick(WT_MULT)) != null) res.wt += u;
+        else if ((u = pick(LIFT_MULT)) != null) res.lift += u;
+        else { res.notes.push('непонятное слагаемое ' + t); }
+      } else plain.push(num(t));
+    }
+    const P = plain.reduce((s, x) => s + x, 0);
+    if (P === 0 && plain.length) { res.base = 0; return res; }
+    if (BASES[P]) { res.base = P; return res; }
+    // составная сумма: вычитаем подъём / доплату за вес / 3 зону из реестра
+    const L = ctx.lift, W = ctx.wt, Z = ctx.z3;
+    const tries = [[L, W, Z], [L, W, 0], [L, 0, 0], [0, W, 0], [0, 0, Z], [L, 0, Z], [0, W, Z]];
+    for (const [l, w, z] of tries) {
+      const rest = P - l - w - z;
+      if (BASES[rest]) {
+        res.base = rest;
+        res.lift += Math.round(l / LIFT_MULT);
+        res.wt += Math.round(w / WT_MULT);
+        res.km += Math.round(z / 60);
+        return res;
+      }
+    }
+    res.notes.push('не удалось разложить сумму ТЭК ' + P);
+    res.unresolved = P;
+    return res;
+  }
+
+  // wb — книга SheetJS (read с cellFormula:true)
+  function parseRegister(XLSX, wb, fileName) {
+    const ws = wb.Sheets[wb.SheetNames[0]];
+    const ref = XLSX.utils.decode_range(ws['!ref']);
+    const cell = (r, c) => ws[XLSX.utils.encode_cell({ r, c })];
+    const V = (r, c) => { if (c < 0) return null; const x = cell(r, c); return x ? (x.v !== undefined ? x.v : null) : null; };
+    const header = [];
+    for (let c = ref.s.c; c <= ref.e.c; c++) header.push(V(ref.s.r, c));
+    const { c: C, miss } = findCols(header);
+    if (miss.length) return { error: 'не найдены колонки: ' + miss.join(', '), rows: [] };
+    const rows = [], warn = [];
+    let store = '';
+    for (let r = ref.s.r + 1; r <= ref.e.r; r++) {
+      const drvRaw = norm(V(r, C.driver));
+      const por = norm(V(r, C.poruch));
+      if (!drvRaw && !por) continue;
+      if (!drvRaw) { warn.push(`${fileName}: строка ${r + 1} без водителя (заказ ${por})`); continue; }
+      const driver = drvRaw.replace(/^\d{1,2}[:.]\d{2}\s*/, '').trim();
+      const date = parseDate(V(r, C.date));
+      if (!date) { warn.push(`${fileName}: строка ${r + 1} без даты`); continue; }
+      if (!store && C.store >= 0) store = norm(V(r, C.store)).replace(/\D/g, '');
+      const comment = norm(V(r, C.comment));
+      let key = por, keyNote = '';
+      if (!/^\d{8,}$/.test(por)) {
+        const m = comment.match(/Номер заказа на доставку:\s*(\d+)/i);
+        if (m) key = m[1] + '_' + ymd(date);
+        else { key = norm(V(r, C.zayavka)) || por; keyNote = 'номер взят из «№ заявки»'; }
+      }
+      const vid = norm(V(r, C.vid)), zone = norm(V(r, C.zone)), status = norm(V(r, C.status));
+      const ctx = { lift: num(V(r, C.lift)), wt: num(V(r, C.wt)), z3: num(V(r, C.z3)) };
+      let tc = C.tek >= 0 ? cell(r, C.tek) : null;
+      let src = 'ТЭК';
+      let tv = tc ? tc.v : null, tf = tc ? tc.f : null;
+      if (tv == null || tv === '' || typeof tv !== 'number' && isNaN(num(tv))) {
+        const t2 = C.total >= 0 ? cell(r, C.total) : null;
+        tv = t2 ? t2.v : null; tf = t2 ? t2.f : null; src = 'тариф ОБИ';
+      }
+      const tekNote = norm(V(r, C.tekNote));
+      rows.push({ file: fileName, row: r + 1, driver, date, key, vid, zone, status, comment, tekNote, keyNote,
+        tekVal: num(tv), tekF: tf ? '=' + String(tf).replace(/^=/, '') : null, src, ctx });
+    }
+    return { rows, warn, store };
+  }
+
+  // Строка реестра -> ячейки табеля
+  function toTabel(row, rates) {
+    const R = Object.assign({}, DEFAULT_RATES, rates || {});
+    const cells = {}; const notes = [];
+    if (row.src !== 'ТЭК') notes.push('ТЭК не заполнен — взят тариф ОБИ');
+    if (row.keyNote) notes.push(row.keyNote);
+    if (row.tekNote) notes.push(row.tekNote);
+    const t0 = typeOf(row.vid), z0 = zoneOf(row.zone);
+    if (CANCEL_RE.test(row.status)) {
+      cells[colFor(t0, z0)] = 0; notes.push('статус: ' + row.status);
+      return { cells, notes, flag: true, sum: 0 };
+    }
+    const d = decompose(row.tekVal, row.tekF, row.ctx);
+    notes.push(...d.notes);
+    let flag = d.notes.length > 0;
+    const mk = row.tekNote.match(/превышени\S*\s*(\d+)/i);
+    if (mk && d.km === 0) { const i = notes.indexOf(row.tekNote); if (i >= 0) notes.splice(i, 1); notes.push(`в комментарии ТЭК превышение ${mk[1]} км, а в сумме ТЭК км нет`); flag = true; }
+    let bcol, kcol;
+    if (d.base == null) { bcol = colFor(t0, z0); kcol = KMCOL[t0]; flag = true; }
+    else if (d.base === 0) { bcol = colFor(t0, z0); kcol = KMCOL[t0]; }
+    else { bcol = BASES[d.base].col; kcol = BASES[d.base].km; if (BASES[d.base].t !== t0) notes.push(`в реестре «${row.vid}», ТЭК посчитал как ${ {К:'курьерскую',М:'малогабаритную',С:'стандартную'}[BASES[d.base].t] }`); }
+    cells[bcol] = d.base == null ? null : d.base === 0 ? 0 : R[bcol];
+    const put = (col, units, rate) => { if (!units) return; cells[col] = units === 1 ? rate : { f: `${units}*${rate}`, v: units * rate }; };
+    put(kcol, d.km, R.KM);
+    put('M', d.wt, R.M);
+    put('N', d.lift, R.N);
+    const sum = Object.values(cells).reduce((s, x) => s + (x == null ? 0 : typeof x === 'number' ? x : x.v), 0);
+    return { cells, notes, flag, sum };
+  }
+
+  G.TabelCore = { DEFAULT_RATES, parseRegister, toTabel, decompose, typeOf, zoneOf };
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+// Сборка книги табеля из разобранных строк реестров
+(function (G) {
+  const COLS = 'CDEFGHIJKLMN'.split('');
+  const serial = (d) => d.getTime() / 86400000 + 25569;
+  const HEAD = { B: 'Тип доставок ', C: 'Курьерская до 10 кг включительно ( 1 зона)', D: 'Курьерская до 10 кг включительно ( 2 зона)', E: 'Курьерская до 10 кг включительно ( 3 зона + 40)', F: '40*1км', G: 'Малогабаритнаая от 10 до 30 кг ( 1 зона)', H: 'Малогабаритнаая от 10 до 30 кг ( 2 зона)', I: 'Малогабаритнаая от 10 до 30 кг ( 3 зона + 40)', J: 'Стандартная до 100 кг ', K: 'Стандартная до 100 кг ( 2 зона)', L: 'Стандартная до 100 кг ( 3 зона + 41)', M: 'Доплата к базовому тарифу', N: 'Доп услуги за каждые 100 кг и каждый этаж', O: 'ИТОГО', P: 'Примечание' };
+
+  // entries: [{row, res}] где res = toTabel(row)
+  function groupEntries(entries) {
+    const byDriver = new Map();
+    for (const e of entries) {
+      if (!byDriver.has(e.row.driver)) byDriver.set(e.row.driver, []);
+      byDriver.get(e.row.driver).push(e);
+    }
+    for (const list of byDriver.values()) list.sort((a, b) => a.row.date - b.row.date || String(a.row.key).localeCompare(String(b.row.key)));
+    return new Map([...byDriver.entries()].sort((a, b) => a[0].localeCompare(b[0], 'ru')));
+  }
+
+  function build(XLSX, entries, ratesFor) {
+    const wb = XLSX.utils.book_new();
+    const groups = groupEntries(entries);
+    const border = { top: { style: 'thin', color: { rgb: 'BFBFBF' } }, bottom: { style: 'thin', color: { rgb: 'BFBFBF' } }, left: { style: 'thin', color: { rgb: 'BFBFBF' } }, right: { style: 'thin', color: { rgb: 'BFBFBF' } } };
+    const sHead = { font: { bold: true, sz: 10 }, alignment: { wrapText: true, vertical: 'center', horizontal: 'center' }, fill: { fgColor: { rgb: 'E8EEF4' } }, border };
+    const sRate = { font: { bold: true }, fill: { fgColor: { rgb: 'F4F6F8' } }, border, alignment: { horizontal: 'center' } };
+    const sCell = { border, alignment: { horizontal: 'center' } };
+    const sFlag = { border, alignment: { horizontal: 'center' }, fill: { fgColor: { rgb: 'FFF2CC' } } };
+    const sDate = { border, numFmt: 'dd.mm.yyyy', font: { bold: true } };
+    const sTot = { font: { bold: true }, border, fill: { fgColor: { rgb: 'E8EEF4' } }, alignment: { horizontal: 'center' } };
+    const summary = [];
+    const checks = [];
+    for (const [driver, list] of groups) {
+      const R = ratesFor(driver);
+      const ws = {};
+      const set = (a, cell) => { ws[a] = cell; };
+      for (const [c, t] of Object.entries(HEAD)) set(c + '1', { t: 's', v: t, s: sHead });
+      set('A1', { t: 's', v: 'Дата', s: sHead });
+      set('B2', { t: 's', v: 'Стоимость', s: sRate });
+      const rateRow = { C: R.C, D: R.D, E: R.KM + '*1км', G: R.G, H: R.H, I: R.H + '+' + R.KM + '*1км', J: R.J, K: R.K, L: R.K + '+' + R.KM + '*1км', M: R.M, N: R.N };
+      for (const c of COLS) { const v = rateRow[c]; set(c + '2', v == null ? { t: 's', v: '', s: sRate } : { t: typeof v === 'number' ? 'n' : 's', v, s: sRate }); }
+      let r = 3, lastDate = null, sum = 0, flagged = 0;
+      for (const e of list) {
+        const { row, res } = e;
+        const st = res.flag ? sFlag : sCell;
+        const dkey = row.date.getTime();
+        if (dkey !== lastDate) { set('A' + r, { t: 'n', v: serial(row.date), s: sDate, z: 'dd.mm.yyyy' }); lastDate = dkey; }
+        const k = String(row.key);
+        set('B' + r, /^\d+$/.test(k) ? { t: 'n', v: +k, s: st, z: '0' } : { t: 's', v: k, s: st });
+        for (const c of COLS) {
+          const x = res.cells[c];
+          if (x === undefined) continue;
+          if (x === null) set(c + r, { t: 's', v: '?', s: sFlag });
+          else if (typeof x === 'number') set(c + r, { t: 'n', v: x, s: st });
+          else set(c + r, { t: 'n', f: x.f, v: x.v, s: st });
+        }
+        if (res.notes.length) set('P' + r, { t: 's', v: res.notes.join('; ') });
+        if (res.flag) { flagged++; checks.push({ driver, date: row.date, key: k, vid: row.vid, zone: row.zone, tek: row.tekF || row.tekVal, sum: res.sum, note: res.notes.join('; '), file: row.file, line: row.row }); }
+        sum += res.sum; r++;
+      }
+      const last = r - 1 + 5; // 5 пустых строк для ручных добавлений
+      const tr = last + 1;
+      set('B' + tr, { t: 's', v: 'Итого ', s: sTot });
+      for (const c of COLS) set(c + tr, { t: 'n', f: `SUM(${c}3:${c}${last})`, s: sTot });
+      set('O' + tr, { t: 'n', f: COLS.map((c) => c + tr).join('+'), v: sum, s: sTot });
+      ws['!ref'] = 'A1:P' + tr;
+      ws['!cols'] = [{ wch: 11 }, { wch: 18 }, ...COLS.map(() => ({ wch: 11 })), { wch: 12 }, { wch: 50 }];
+      ws['!rows'] = [{ hpt: 58 }];
+      ws['!freeze'] = { xSplit: 0, ySplit: 2 };
+      ws['!views'] = [{ state: 'frozen', ySplit: 2, topLeftCell: 'A3' }];
+      const sheetName = driver.replace(/[\\\/?*\[\]:]/g, ' ').slice(0, 31);
+      summary.push({ driver, sheetName, count: list.length, sum, flagged, totalRow: tr });
+      XLSX.utils.book_append_sheet(wb, ws, sheetName);
+    }
+    // ИТОГО
+    const ws = {};
+    const hdr = ['Водитель', 'Заказов', 'Сумма, ₽', 'Проверить'];
+    hdr.forEach((h, i) => { ws[String.fromCharCode(65 + i) + '1'] = { t: 's', v: h, s: sHead }; });
+    summary.forEach((s, i) => {
+      const r = i + 2;
+      ws['A' + r] = { t: 's', v: s.driver, s: sCell };
+      ws['B' + r] = { t: 'n', v: s.count, s: sCell };
+      ws['C' + r] = { t: 'n', f: `'${s.sheetName}'!O${s.totalRow}`, v: s.sum, s: sCell, z: '#,##0' };
+      ws['D' + r] = { t: 'n', v: s.flagged, s: s.flagged ? sFlag : sCell };
+    });
+    const tr = summary.length + 2;
+    ws['A' + tr] = { t: 's', v: 'ИТОГО', s: sTot };
+    ws['B' + tr] = { t: 'n', f: `SUM(B2:B${tr - 1})`, s: sTot };
+    ws['C' + tr] = { t: 'n', f: `SUM(C2:C${tr - 1})`, v: summary.reduce((a, s) => a + s.sum, 0), s: sTot, z: '#,##0' };
+    ws['D' + tr] = { t: 'n', f: `SUM(D2:D${tr - 1})`, s: sTot };
+    ws['!ref'] = 'A1:D' + tr;
+    ws['!cols'] = [{ wch: 22 }, { wch: 10 }, { wch: 14 }, { wch: 11 }];
+    XLSX.utils.book_append_sheet(wb, ws, 'ИТОГО');
+    // Проверить
+    if (checks.length) {
+      const rows = [['Водитель', 'Дата', 'Заказ', 'Вид доставки', 'Зона', 'ТЭК', 'В табель, ₽', 'Что проверить', 'Файл реестра', 'Строка']];
+      for (const c of checks) rows.push([c.driver, serial(c.date), c.key, c.vid, c.zone, String(c.tek), c.sum, c.note, c.file, c.line]);
+      const w2 = XLSX.utils.aoa_to_sheet(rows);
+      for (let i = 0; i < 10; i++) { const a = XLSX.utils.encode_cell({ r: 0, c: i }); w2[a].s = sHead; }
+      for (let r = 1; r < rows.length; r++) { const a = XLSX.utils.encode_cell({ r, c: 1 }); if (w2[a]) w2[a].z = 'dd.mm.yyyy'; }
+      w2['!cols'] = [{ wch: 16 }, { wch: 11 }, { wch: 18 }, { wch: 22 }, { wch: 14 }, { wch: 20 }, { wch: 11 }, { wch: 55 }, { wch: 30 }, { wch: 7 }];
+      XLSX.utils.book_append_sheet(wb, w2, 'Проверить');
+    }
+    // ИТОГО первым листом
+    wb.SheetNames = ['ИТОГО', ...wb.SheetNames.filter((n) => n !== 'ИТОГО')];
+    return { wb, summary, checks };
+  }
+  G.TabelBuild = { build };
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+(function(){
+  const T = window.TabelCore, B = window.TabelBuild;
+  const RATE_ROWS = [
+    ['C','Курьерская, 1 зона',620],['D','Курьерская, 2–3 зона',960],['KM','За 1 км превышения','60 / 55'],
+    ['G','Малогабаритная, 1 зона',1100],['H','Малогабаритная, 2–3 зона',1480],
+    ['J','Стандартная, 1 зона',1400],['K','Стандартная, 2–3 зона',2185],
+    ['M','Доплата за каждые 100 кг',300],['N','Подъём (этаж / лифт)',330],
+  ];
+  const LS = 'tabel1509.v1';
+  const load = () => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch(e){ return {}; } };
+  const saved = load();
+  let rates = Object.assign({}, T.DEFAULT_RATES, saved.rates || {});
+  let overrides = saved.overrides || {};
+  const persist = () => { try { localStorage.setItem(LS, JSON.stringify({rates, overrides})); } catch(e){} };
+
+  const files = []; // {name, rows, warn, store, error}
+  const $ = (id) => document.getElementById(id);
+  const fmt = (n) => Math.round(n).toLocaleString('ru-RU');
+  const dstr = (d) => d.toISOString().slice(0,10).split('-').reverse().join('.');
+  const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  // ставки
+  function renderRates(){
+    $('ratesBody').innerHTML = RATE_ROWS.map(([k,label,tek]) =>
+      `<tr><td class="col">${k==='KM'?'E,I,L':k}</td><td>${label}</td><td class="n">${tek}</td>
+       <td class="n"><input id="rate-${k}" type="number" min="0" step="1" value="${rates[k]}" aria-label="${label}, водителю"></td></tr>`).join('');
+    RATE_ROWS.forEach(([k]) => $('rate-'+k).addEventListener('input', e => { rates[k] = +e.target.value || 0; persist(); recompute(); }));
+  }
+  $('resetRates').addEventListener('click', () => { rates = Object.assign({}, T.DEFAULT_RATES); persist(); renderRates(); recompute(); });
+
+  function renderOverrides(drivers){
+    const sel = $('ovrSelect');
+    sel.innerHTML = '<option value="">Выберите водителя</option>' + drivers.filter(d => !overrides[d]).map(d => `<option>${esc(d)}</option>`).join('');
+    const names = Object.keys(overrides);
+    if (!names.length) { $('ovrTable').innerHTML = ''; return; }
+    $('ovrTable').innerHTML = '<thead><tr><th>Водитель</th>' + RATE_ROWS.map(([k]) => `<th class="n">${k==='KM'?'км':k}</th>`).join('') + '<th></th></tr></thead><tbody>' +
+      names.map((d,i) => `<tr><td>${esc(d)}</td>` + RATE_ROWS.map(([k]) => `<td class="n rates"><input style="width:62px" id="ovr-${i}-${k}" data-d="${esc(d)}" data-k="${k}" type="number" min="0" value="${overrides[d][k]}" aria-label="${esc(d)} ${k}"></td>`).join('') +
+      `<td><button class="x" data-del="${esc(d)}" aria-label="Убрать ${esc(d)}">×</button></td></tr>`).join('') + '</tbody>';
+    $('ovrTable').querySelectorAll('input').forEach(inp => inp.addEventListener('input', e => { overrides[e.target.dataset.d][e.target.dataset.k] = +e.target.value || 0; persist(); recompute(false); }));
+    $('ovrTable').querySelectorAll('[data-del]').forEach(b => b.addEventListener('click', () => { delete overrides[b.dataset.del]; persist(); recompute(); }));
+  }
+  $('ovrAdd').addEventListener('click', () => { const d = $('ovrSelect').value; if (!d) return; overrides[d] = Object.assign({}, rates); persist(); recompute(); });
+
+  // файлы
+  const drop = $('drop'), input = $('fileInput');
+  drop.addEventListener('click', () => input.click());
+  drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
+  ['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
+  ['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('over'); }));
+  drop.addEventListener('drop', e => addFiles([...e.dataTransfer.files]));
+  input.addEventListener('change', () => { const l = [...input.files]; input.value = ''; addFiles(l); });
+
+  async function addFiles(list){
+    for (const f of list) {
+      if (!/\.xlsx?$/i.test(f.name)) continue;
+      const idx = files.findIndex(x => x.name === f.name);
+      let entry;
+      try {
+        const wb = XLSX.read(await f.arrayBuffer(), {cellFormula:true});
+        const p = T.parseRegister(XLSX, wb, f.name);
+        entry = p.error ? {name:f.name, error:p.error, rows:[]} : Object.assign({name:f.name}, p);
+        if (!entry.error && entry.rows.length && entry.rows.every(r => r.src !== 'ТЭК')) entry.noTek = true;
+      } catch(err) { entry = {name:f.name, error:'не удалось прочитать файл', rows:[]}; }
+      if (idx >= 0) files[idx] = entry; else files.push(entry);
+    }
+    recompute();
+  }
+
+  let last = null;
+  function recompute(rerenderOvr = true){
+    // сводим строки: один заказ + дата = одна строка; строка с ТЭК важнее строки без ТЭК, иначе берётся последний файл
+    const map = new Map(); const dupes = []; const moved = [];
+    for (const f of files) for (const row of f.rows) {
+      const k = row.key + '|' + row.date.getTime();
+      const prev = map.get(k);
+      if (prev) {
+        dupes.push(row.key);
+        if (prev.driver !== row.driver) moved.push(`${row.key}: ${prev.driver} → ${row.driver}`);
+        if (prev.src === 'ТЭК' && row.src !== 'ТЭК') continue;
+      }
+      map.set(k, row);
+    }
+    const rows = [...map.values()];
+    const drivers = [...new Set(rows.map(r => r.driver))].sort((a,b) => a.localeCompare(b,'ru'));
+    const ratesFor = (d) => Object.assign({}, rates, overrides[d] || {});
+    const entries = rows.map(row => ({row, res: T.toTabel(row, ratesFor(row.driver))}));
+    last = rows.length ? B.build(XLSX, entries, ratesFor) : null;
+    last && (last.rows = rows);
+    renderFiles(); if (rerenderOvr) renderOverrides(drivers);
+    renderResult(rows, dupes, moved);
+  }
+
+  function renderFiles(){
+    $('fileList').innerHTML = files.map((f,i) => {
+      const dates = [...new Set(f.rows.map(r => dstr(r.date)))];
+      const meta = f.error ? `<span class="meta err">${esc(f.error)}</span>` : `<span class="meta">${dates.join(', ')} · ${f.rows.length} зак.${f.noTek?' · <span class="pill">без ТЭК</span>':''}</span>`;
+      return `<li><span class="name" title="${esc(f.name)}">${esc(f.name)}</span>${meta}<button class="x" data-rm="${i}" aria-label="Убрать файл">×</button></li>`;
+    }).join('');
+    $('fileList').querySelectorAll('[data-rm]').forEach(b => b.addEventListener('click', () => { files.splice(+b.dataset.rm,1); recompute(); }));
+  }
+
+  function renderResult(rows, dupes, moved){
+    const res = $('result');
+    if (!last) {
+      res.innerHTML = `<p class="empty">Пока пусто. Добавьте реестры слева, и здесь появится сводка по водителям.</p>
+      <p class="label" style="margin-top:16px">Как считается строка табеля</p>
+      <div class="scroll"><table>
+        <thead><tr><th>В колонке ТЭК реестра</th><th>В табеле водителя</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">620</td><td class="mono">C = 410</td></tr>
+          <tr><td class="mono">1730 <span class="muted">(1400 + подъём 330)</span></td><td class="mono">J = 900, N = 220</td></tr>
+          <tr><td class="mono">=20*60+2185</td><td class="mono">K = 1450, L = 20*40</td></tr>
+          <tr><td class="mono">=1400+3*300+4*330</td><td class="mono">J = 900, M = 3*200, N = 4*220</td></tr>
+          <tr><td class="mono">1400 <span class="muted">у курьерской (длинномер)</span></td><td class="mono">J = 900 <span class="muted">+ пометка</span></td></tr>
+        </tbody></table></div>
+      <p class="muted" style="font-size:13px;margin:12px 0 0">Розничные заказы (Домлента) попадают в табель как «номер доставки_дата», например 5502027_20260926. Отменённые заказы идут с нулём.</p>`;
+      $('download').disabled = true; $('status').textContent = '';
+      return;
+    }
+    const s = last.summary, total = s.reduce((a,x) => a + x.sum, 0);
+    const dates = rows.map(r => r.date.getTime());
+    const d1 = new Date(Math.min(...dates)), d2 = new Date(Math.max(...dates));
+    const msgs = [];
+    files.filter(f => f.error).forEach(f => msgs.push(['bad', `${f.name}: ${f.error}`]));
+    files.filter(f => f.noTek).forEach(f => msgs.push(['', `${f.name}: колонка ТЭК пустая, суммы взяты по тарифу ОБИ. Лучше загрузить версию реестра с заполненным ТЭК.`]));
+    if (dupes.length) msgs.push(['', `${dupes.length} заказ(ов) встретились в нескольких файлах, в табель взяты один раз.`]);
+    moved.slice(0,5).forEach(m => msgs.push(['', `Заказ сменил водителя в разных файлах: ${m}. Взят последний.`]));
+    const warns = files.flatMap(f => f.warn || []);
+    if (warns.length) msgs.push(['', `Пропущено строк без водителя или даты: ${warns.length}.`]);
+    const checks = last.checks;
+    res.innerHTML = `
+      <div class="kpis">
+        <div class="kpi"><b>${dstr(d1)}${+d1!==+d2?' – '+dstr(d2):''}</b><span>период</span></div>
+        <div class="kpi"><b>${fmt(rows.length)}</b><span>заказов</span></div>
+        <div class="kpi"><b>${s.length}</b><span>водителей</span></div>
+        <div class="kpi"><b>${fmt(total)} ₽</b><span>к выплате водителям</span></div>
+      </div>
+      ${msgs.length ? `<ul class="msgs" style="margin-bottom:14px">${msgs.map(([c,t]) => `<li class="${c}">${esc(t)}</li>`).join('')}</ul>` : ''}
+      <div class="scroll"><table>
+        <thead><tr><th>Водитель</th><th class="n">Заказов</th><th class="n">Сумма, ₽</th><th>Проверка</th></tr></thead>
+        <tbody>${s.map(x => `<tr><td>${esc(x.driver)}${overrides[x.driver]?' <span class="muted" style="font-size:12px">свои ставки</span>':''}</td><td class="n">${x.count}</td><td class="n">${fmt(x.sum)}</td><td>${x.flagged?`<span class="pill">${x.flagged} проверить</span>`:'<span class="pill ok">ок</span>'}</td></tr>`).join('')}
+        <tr><td><b>Итого</b></td><td class="n"><b>${fmt(rows.length)}</b></td><td class="n"><b>${fmt(total)}</b></td><td></td></tr></tbody>
+      </table></div>
+      ${checks.length ? `<p class="label" style="margin-top:18px">Что проверить (${checks.length})</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Водитель</th><th>Дата</th><th>Заказ</th><th>ТЭК</th><th>Причина</th></tr></thead>
+        <tbody>${checks.slice(0,60).map(c => `<tr><td>${esc(c.driver)}</td><td class="mono">${dstr(c.date)}</td><td class="mono">${esc(c.key)}</td><td class="mono">${esc(c.tek)}</td><td>${esc(c.note)}</td></tr>`).join('')}</tbody>
+      </table></div>${checks.length>60?`<p class="muted" style="font-size:13px">Показаны первые 60, весь список на листе «Проверить».</p>`:''}` : ''}`;
+    const store = files.map(f => f.store).find(Boolean) || '';
+    const range = +d1 === +d2 ? dstr(d1) : `${String(d1.getUTCDate()).padStart(2,'0')}-${dstr(d2)}`;
+    last.filename = `Табель ${store ? store + ' ' : ''}${range}.xlsx`.replace(/\s+/g,' ');
+    $('download').disabled = false;
+    $('status').textContent = last.filename;
+  }
+
+  // скачивание
+  let downloads = null;
+  const ready = window.claude && window.claude.use ? window.claude.use('downloads').then(d => { downloads = d; }).catch(() => {}) : Promise.resolve();
+  $('download').addEventListener('click', async () => {
+    if (!last) return;
+    await ready;
+    if (!downloads) { $('status').textContent = 'Скачивание недоступно в этом окне. Откройте инструмент по ссылке в браузере.'; return; }
+    const data = XLSX.write(last.wb, {type:'array', bookType:'xlsx'});
+    try {
+      await downloads.save({filename: last.filename, data: new Blob([data])});
+      $('status').textContent = 'Сохранено: ' + last.filename;
+    } catch (e) {
+      const code = e && e.code;
+      $('status').textContent = code === 'declined' ? 'Сохранение отменено.' : code === 'rate_limited' ? 'Окно сохранения уже открыто.' : 'Не удалось сохранить файл (' + (code || 'ошибка') + ').';
+    }
+  });
+
+  renderRates();
+  recompute();
+})();
+</script>
+
+</body></html>

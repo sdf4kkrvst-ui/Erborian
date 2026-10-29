@@ -1,0 +1,14 @@
+{
+  "description": "Отчёты ДНС по тарифу ПЭК за 01–15.09 и 16–30.09.2026: ДНС и Пушкино отдельно.",
+  "fixed": true,
+  "source": {
+    "kind": "file",
+    "name": "dns_periods.csv",
+    "url": "/_blob/64ba0d8471a15d8499b2f57dade083ee"
+  },
+  "title": "ДНС по полумесяцам",
+  "updated": {
+    "at": "2026-10-15T19:50:00Z",
+    "by": "Claude"
+  }
+}

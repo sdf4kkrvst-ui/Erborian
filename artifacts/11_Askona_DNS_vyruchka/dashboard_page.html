@@ -1,0 +1,82 @@
+<style>
+.db{font-family:var(--font-anthropic-sans);color:var(--color-fg);display:flex;flex-direction:column;gap:28px}
+.db-note{color:var(--color-fg-muted);font-size:13px;margin:0}
+.db-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.db-kpi{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:10px;padding:14px 16px}
+.db-kpi-l{font-size:12px;color:var(--color-fg-muted)}
+.db-kpi-v{font-family:var(--font-anthropic-serif);font-size:26px;margin-top:4px}
+.db-kpi-s{font-size:12px;color:var(--color-fg-muted);margin-top:2px}
+.db h2{font-size:16px;margin:0 0 4px}
+.db-sub{font-size:13px;color:var(--color-fg-muted);margin:0 0 12px}
+.db-chart{position:relative}
+.db-tip{position:absolute;pointer-events:none;background:var(--color-bg);border:1px solid var(--color-border-line);border-radius:6px;padding:6px 8px;font-size:12px;display:none;white-space:nowrap}
+.db-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.db-tbl th{text-align:right;font-weight:500;color:var(--color-fg-muted);border-bottom:1px solid var(--color-border-line);padding:6px 8px}
+.db-tbl td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--color-border-line);font-variant-numeric:tabular-nums}
+.db-tbl th:first-child,.db-tbl td:first-child{text-align:left}
+.db-wrap{overflow-x:auto}
+</style>
+<div class="db">
+<p class="db-note">Черновик по сохранённым цифрам: Аскона — три дня по актам, ДНС — сентябрь. Ваша комиссия 20%, водителям 80%.</p>
+<div class="db-kpis">
+ <div class="db-kpi"><div class="db-kpi-l">ДНС за сентябрь</div><div class="db-kpi-v" data-source="summary" data-field="dns_total" data-row="0">—</div><div class="db-kpi-s">два полумесяца, ДНС + Пушкино</div></div>
+ <div class="db-kpi"><div class="db-kpi-l">Аскона, 3 дня</div><div class="db-kpi-v" data-source="summary" data-field="askona_total" data-row="0">—</div><div class="db-kpi-s">12.09, 21.09, 27.09</div></div>
+ <div class="db-kpi"><div class="db-kpi-l">Аскона, средняя машина за смену</div><div class="db-kpi-v" data-source="summary" data-field="askona_avg" data-row="0">—</div><div class="db-kpi-s">по акту, до комиссии</div></div>
+ <div class="db-kpi"><div class="db-kpi-l">Ваши 20% по всему</div><div class="db-kpi-v" data-source="summary" data-field="mine_total" data-row="0">—</div><div class="db-kpi-s">ДНС + Аскона</div></div>
+</div>
+<section id="askona">
+ <h2>Аскона — выручка по машинам</h2>
+ <p class="db-sub">Сумма акта на машину за смену. Маршрут «СБОРКА» 21.09 не входит.</p>
+ <div class="db-chart" id="askona-chart" data-source="askona_acts"><div class="db-tip"></div></div>
+ <div class="db-wrap" style="margin-top:14px">
+ <table class="db-tbl" data-source="askona_days" data-row-key="date">
+  <thead><tr><th data-field="date">Дата</th><th data-field="machines">Машин</th><th data-field="total">По акту</th><th data-field="avg">На машину</th><th data-field="driver">Водителям 80%</th><th data-field="mine">Ваши 20%</th></tr></thead>
+  <tbody></tbody>
+ </table></div>
+</section>
+<section id="dns">
+ <h2>ДНС — по полумесяцам</h2>
+ <p class="db-sub">По тарифу ПЭК. 16–30.09 — до перепроверки по исправленным файлам.</p>
+ <div class="db-wrap">
+ <table class="db-tbl" data-source="dns_by_period" data-row-key="period">
+  <thead><tr><th data-field="period">Период</th><th data-field="dns">ДНС</th><th data-field="pushkino">Пушкино</th><th data-field="total">Итого</th><th data-field="mine">Ваши 20%</th></tr></thead>
+  <tbody></tbody>
+ </table></div>
+</section>
+</div>
+<script>
+dash.calc('askona_days',{title:'Аскона по дням',description:'Сумма актов за день, число машин, 80% водителям и 20% комиссия.',inputs:['askona_acts'],fn:(askona_acts)=>{
+ const m={};askona_acts.forEach(r=>{const d=r.date;m[d]=m[d]||{date:d,machines:0,total:0};m[d].machines++;m[d].total+=Number(r.amount)});
+ return Object.values(m).map(x=>({...x,avg:Math.round(x.total/x.machines),driver:Math.round(x.total*0.8),mine:Math.round(x.total*0.2)}));}});
+dash.calc('dns_by_period',{title:'ДНС по периодам',description:'ДНС + Пушкино за полмесяца и 20% комиссия.',inputs:['dns_periods'],fn:(dns_periods)=>dns_periods.map(r=>{const t=Number(r.dns)+Number(r.pushkino);return{period:r.period,dns:Number(r.dns),pushkino:Number(r.pushkino),total:t,mine:Math.round(t*0.2)}})});
+dash.calc('summary',{title:'Итоги',description:'Суммы по ДНС и Аскона, средняя машина Асконы и общая комиссия 20%.',inputs:['askona_acts','dns_periods'],fn:(askona_acts,dns_periods)=>{
+ const a=askona_acts.reduce((s,r)=>s+Number(r.amount),0);const d=dns_periods.reduce((s,r)=>s+Number(r.dns)+Number(r.pushkino),0);
+ return [{askona_total:a,askona_avg:Math.round(a/askona_acts.length),dns_total:d,mine_total:Math.round((a+d)*0.2)}];}});
+(function(){
+const rub=v=>Math.round(v).toLocaleString('ru-RU')+' ₽';
+const root=document.getElementById('dash-root');
+function fill(id,cols){const t=root.querySelector('table[data-source="'+id+'"] tbody');const s=dash.data(id);t.textContent='';
+ if(s.status!=='ok'){const tr=t.insertRow();const td=tr.insertCell();td.colSpan=cols.length;td.textContent='—';return}
+ s.data.forEach(r=>{const tr=t.insertRow();cols.forEach(([k,f])=>{tr.insertCell().textContent=f?f(r[k]):r[k]})})}
+dash.onData(()=>{
+ const s=dash.data('summary');
+ root.querySelectorAll('[data-source="summary"]').forEach(el=>{el.textContent=s.status==='ok'?rub(s.data[0][el.dataset.field]):'—'});
+ fill('askona_days',[['date'],['machines',String],['total',rub],['avg',rub],['driver',rub],['mine',rub]]);
+ fill('dns_by_period',[['period'],['dns',rub],['pushkino',rub],['total',rub],['mine',rub]]);
+ const box=document.getElementById('askona-chart');const tip=box.querySelector('.db-tip');d3.select(box).select('svg').remove();
+ const a=dash.data('askona_acts');if(a.status!=='ok'){return}
+ const rows=a.data.map(r=>({...r,v:Number(r.amount),k:r.date+' · '+r.machine}));
+ const W=Math.max(300,box.clientWidth),bh=22,gap=6,ml=130,mr=70,H=rows.length*(bh+gap)+10;
+ const x=d3.scaleLinear().domain([0,d3.max(rows,r=>r.v)]).range([0,W-ml-mr]);
+ const dates=[...new Set(rows.map(r=>r.date))];const col=d=>dash.colors[dates.indexOf(d)%dash.colors.length];
+ const svg=d3.select(box).insert('svg','.db-tip').attr('width','100%').attr('viewBox','0 0 '+W+' '+H);
+ const g=svg.selectAll('g').data(rows).join('g').attr('transform',(r,i)=>'translate(0,'+(i*(bh+gap))+')');
+ g.append('text').attr('x',ml-8).attr('y',bh/2).attr('dy','0.35em').attr('text-anchor','end').attr('fill','var(--color-fg-muted)').style('font-size','12px').text(r=>r.k);
+ g.append('rect').attr('x',ml).attr('height',bh).attr('rx',3).attr('width',r=>x(r.v)).attr('fill',r=>col(r.date))
+  .on('mousemove',(e,r)=>{const b=box.getBoundingClientRect();tip.style.display='block';tip.textContent=r.k+': '+rub(r.v)+' (водителю '+rub(r.v*0.8)+')';let L=e.clientX-b.left+10;if(L+tip.offsetWidth>b.width)L=b.width-tip.offsetWidth;tip.style.left=Math.max(0,L)+'px';tip.style.top=(e.clientY-b.top-34)+'px'})
+  .on('mouseleave',()=>tip.style.display='none');
+ g.append('text').attr('x',r=>ml+x(r.v)+6).attr('y',bh/2).attr('dy','0.35em').attr('fill','var(--color-fg)').style('font-size','12px').text(r=>Math.round(r.v/1000)+' тыс');
+});
+})();
+</script>
+
