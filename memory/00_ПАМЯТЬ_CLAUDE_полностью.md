@@ -1,4 +1,4 @@
-# Память Claude — полная копия (на 29.10.2026)
+# Память Claude — полная копия (обновлено 30.10.2026)
 
 Все файлы памяти, которые Claude хранил о тебе и твоей работе. Тег [stated] = «ты это сказал сам». Чтобы восстановить в новом аккаунте — можно скормить этот файл новому Claude (или через импорт памяти).
 
@@ -30,21 +30,29 @@
 - окт 2026: набор через Авито водителей со своей Газелью (кузов 4–4,2 м) на доставку Асконы; водитель получает на 20% меньше суммы в акте перевозчика
 
 ## /areas/car-purchase.md — машина (Volvo V40 Cross Country)
-- искал б/у машину, бюджет ~1,2 млн ₽; мотор 2.0, полный привод, автомат
-- рассматривал Volvo V40 Cross Country (лучше 2015+), BMW X1; склонялся к Volvo
-- также смотрел Range Rover Evoque, Volvo XC60, Infiniti Q30; выбрал V40 Cross Country
-- купил (сент 2026): Volvo V40 Cross Country 2013, T5 AWD 2.0 213 л.с., автомат, ~300 тыс. км («курская», VIN YV1MZ6356D2007308)
-- нет заводского Bluetooth; интересует CarPlay / большой Android-экран
-- сторговал до 1,1 млн ₽; прежний владелец за год до этого сделал работ на ~300 тыс. ₽: обслуживание Haldex, картридж турбины, маслосъёмные колпачки, ремень ГРМ (~280–300 тыс. км), замена масла в АКПП
-- план: на следующем ТО (~через 4000 км) поменять опоры двигателя и проверить кардан (вибрация в сиденье на 60–90 км/ч; колёса исключены)
-- есть также BMW с мотором N20; льёт 5W-30 BMW LL-01
-- V40: основной АКБ заменён ~окт 2026; дополнительный АКБ старт-стопа (ориг. 31358957) плохой — куплен Bushido HCX12-i (AGM, чуть меньше оригинала)
+[updated 2026-10-30T07:26Z]
+- [stated] looking to buy a used car, budget around 1.2 млн ₽; wants 2.0 engine, full-wheel drive and automatic
+- [stated] considering Volvo V40 Cross Country (2015+ preferred); also looked at BMW X1, leaning toward the Volvo
+- [stated] also asked about Range Rover Evoque, Volvo XC60 and Infiniti Q30; decided to go with the V40 Cross Country
+- [stated] bought the car (Sept 2026): Volvo V40 Cross Country 2013, T5 AWD 2.0 213 л.с., automatic, ~300 тыс. км ("курская", VIN YV1MZ6356D2007308)
+- [stated] no factory Bluetooth; interested in CarPlay / bigger Android screen
+- [stated] negotiated price down to 1.1 млн ₽; previous owner did ~300 тыс. ₽ of work: Haldex service, turbo cartridge, valve stem seals, timing belt (~280–300 тыс. км), ATF change
+- [stated] plan: at next ТО (~4000 км away) replace engine mounts and have the propshaft checked (vibration at 60–90 км/ч; wheels ruled out)
+- [stated] also owns a BMW with the N20 engine; uses 5W-30 BMW LL-01 oil
+- [stated] V40: main battery replaced ~Oct 2026; auxiliary start-stop battery (orig. 31358957) is bad — bought Bushido HCX12-i (AGM, slightly smaller than original)
+- [stated] building an Android diagnostic app for the V40 with Claude (Oct 2026); has an ELM327 Bluetooth adapter; wants engine DTCs, live data, Volvo modules (АКПП, Haldex) and trip logging
 
 ## /areas/carrier-acts.md — акты перевозчиков
 - нужны акты из маршрутных листов по образцу акта (формат акта Вотловой), включая акты от ИП Чередниченко
 - исходные данные для цены: карта зон доставки (geojson), цены по зонам (prices.xlsx), цены услуг (services.xlsx)
 - хотел приложение, автоматически считающее акты, с геокодером DaData (как в «Реестре»)
 - почти все перевозчики сдают первичку сканами развозных листов (Аскона), выгрузка в Excel — скорее исключение
+
+## /areas/claude-backup.md — резервная копия Claude
+[updated 2026-10-29T23:29Z]
+- [stated] wants all Claude account work backed up so nothing is lost if the account gets banned; what already lives on his PC doesn't need uploading
+- [stated] backup lives on GitHub in his private repo sdf4kkrvst-ui/Erborian, branch claude-backup (main stays for the books)
+- [stated] wants a daily backup at 00:00 of the day's work to GitHub and to the PC — drive D (D:\Резервная копия Claude), not the desktop; chose Sonnet for this scheduled task to save tokens
 
 ## /areas/co-nakladnaya-matching.md — ЦО (накладная) в акты
 - повторяющаяся задача: наборы файлов (акт xlsx + скан развозного листа PDF) — сопоставлять контрагентов между сканом и актом, затем заполнять колонку C текстом магазина/назначения «ЦО (накладная)» (не код № ДО)
