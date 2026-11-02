@@ -1,0 +1,24 @@
+Артефакты аккаунта (сохранены сегодня — помечены [COPY 01.11])
+[COPY 01.11] Презентация ПСО-733 — https://claude.ai/artifact/WJMm1kRSrcfkpCjZJ8zFFc — 2026-11-01 (Slides; сохранены index.html и project/*, служебные artifact-type/* пропущены; картинки /_blob/* не скачаны)
+[COPY 01.11, частично] Объявления ПСО-733 и «Бери Живи» — https://claude.ai/artifact/1Gjripic5Rsk5CmgWyDmEX — 2026-11-01 (Docs; сохранена только оболочка index.html, ТЕКСТ ДОКУМЕНТА (27 КБ md) НЕ СОХРАНЁН — нужен экспорт через Claude Docs)
+[COPY 01.11] Новый сайт ПСО-733 — https://claude.ai/artifact/SBCLi9xh8yjcsLZ6J8dy59 — 2026-11-01 (index.html + img/)
+Заявление о выдаче копии декларации за 2025 год — https://claude.ai/artifact/M1mAB8SqQoWqdjvF4FHrX3 — 2026-10-30
+Тендеры на модули и бытовки — Москва и МО — https://claude.ai/artifact/CtpdhpKAyMqQxEbhZnywTm — 2026-10-29
+Документы при увольнении — ООО «НЕОКЕМ» — https://claude.ai/artifact/9f1YPC15NwadfvkCn7tfWg — 2026-10-23
+Хроники Эрбориана. Книга вторая — Библия — https://claude.ai/artifact/XZgmUBzRLjX1G6uM2kVU9g — 2026-10-26
+Ригель Металлоконструкции — https://claude.ai/artifact/994FD7PrEXbdbxfJqjzbaj — 2026-09-07
+Азбука для малышей — https://claude.ai/artifact/SMqkQvDPfV1uzWAHXi5Z2J — 2026-08-03
+Книга первая: Разорванное кольцо — https://claude.ai/artifact/66zBX8pzErXDh8T7y3Wjez — 2026-10-24
+Книга первая: Брод — https://claude.ai/artifact/2Qm1oMqYzW9tFnL8iVZVKB — 2026-10-24
+Летопись мира «Тихий Брод» — https://claude.ai/artifact/VyEfroL9LJzVw5nB816VvZ — 2026-10-20
+Библия Эрбориана — https://claude.ai/artifact/9HXbSWZJHibMxXxr97frpo — 2026-10-23
+Записка сюжетника — https://claude.ai/artifact/WnyYpzXUc2QPD389VwPJ4y — 2026-10-23
+Тихий Брод 2 — https://claude.ai/artifact/7dnaNyTpwgEUXrohLJvDAs — 2026-10-21
+Кузница Тихого Брода — https://claude.ai/artifact/NJQNKqinqhgsjoeMN8NrT5 — 2026-10-20
+Аскона и ДНС — выручка — https://claude.ai/artifact/YGMsskbzx8J9iWMYXVJ8tf — 2026-10-15
+Сборка мебели у Ары — https://claude.ai/artifact/Vj1LfH7WqoWRtQ6o6FQHQz — 2026-10-06
+Бери Живи — карусели — https://claude.ai/artifact/TaLyjUCNF6ZY5vq18eyfQZ — 2026-10-06
+Бери Живи — старт Instagram — https://claude.ai/artifact/Jwet6s6p3yJ5e3u64CNXmY — 2026-10-06
+Табель водителей 1509 — https://claude.ai/artifact/8HCEcoAXwUkG36h7zFU66N — 2026-09-26
+Монитор Земли — https://claude.ai/artifact/FG4UxqwdKZiQapAK4ZUwHh — 2026-09-25
+Азбука — буква А — https://claude.ai/artifact/9uDua43beLcYq3c41xDY6v — 2026-08-03
