@@ -1,0 +1,32 @@
+[
+ {
+  "id": "trig_01AvLy4SHyHV7vDapxSq57zj",
+  "name": "Цветная 3D-модель",
+  "run_once_at": "2026-11-02T22:09:00Z",
+  "enabled": false,
+  "ended_reason": "run_once_fired",
+  "created_at": "2026-11-02T21:56:40Z",
+  "updated_at": "2026-11-02T22:09:52Z",
+  "prompt": "Проверить покраску 3D-модели на ПК: D:\\AI3D\\person3d\\tex.log, run.log (ждём 'tex exit=' и затем 'gifc exit='), person_color.glb, person_color_turntable.gif. watch_c.ps1 сам рендерит цветную гифку. Если готово — забрать гифку и кадр frames_c\\f000.png, f018.png через device_stage_files, посмотреть кадры (текстура легла правильно? свет?), при проблемах поправить и перерендерить, затем отправить гифку пользователю. Если ещё идёт — проверить снова через ~10 мин."
+ },
+ {
+  "id": "trig_01HGRyCzawFrNpg814S2R4uB",
+  "name": "Забрать гифку 3D-модели",
+  "run_once_at": "2026-11-02T21:47:00Z",
+  "enabled": false,
+  "ended_reason": "run_once_fired",
+  "created_at": "2026-11-02T21:21:52Z",
+  "updated_at": "2026-11-02T21:47:45Z",
+  "prompt": "Проверить D:\\AI3D\\person3d: run.log (вторая строка exit= от генерации, потом 'gif exit='), gif.log, person.glb, person_turntable.gif. Watcher watch.ps1 сам запускает make_gif.ps1 после генерации. Если гифка готова — забрать её через device_stage_files и отправить пользователю (SendUserFile), посмотреть пару кадров на правильность (ориентация, камера). Если ошибка — разобраться и исправить. Если ещё идёт — проверить снова через 10 мин."
+ },
+ {
+  "id": "trig_01Cby3yiWjKUbpZQBFPHQKxo",
+  "name": "3D-модель и гифка (повтор)",
+  "run_once_at": "2026-11-02T21:21:00Z",
+  "enabled": false,
+  "ended_reason": "run_once_fired",
+  "created_at": "2026-11-02T20:35:20Z",
+  "updated_at": "2026-11-02T21:21:28Z",
+  "prompt": "Снова проверить генерацию 3D-модели на ПК (D:\\AI3D\\person3d\\shape.log, run.log, person.glb). Если GLB готов — запустить D:\\AI3D\\person3d\\make_gif.ps1 (через Start-Process в фоне), дождаться gif.log/person_turntable.gif, забрать гифку (device_stage_files) и отправить пользователю. Если ещё идёт — поставить следующую проверку по оценке оставшегося времени; если упала — разобраться и перезапустить."
+ }
+]
