@@ -16,3 +16,4 @@ aliases: [покупка авто, Volvo V40 Cross Country, вольво]
 - [stated] V40: main battery replaced ~Oct 2026; auxiliary start-stop battery (orig. 31358957) is bad — bought Bushido HCX12-i (AGM, measured slightly smaller than original) as replacement
 - [stated] building an Android diagnostic app for the V40 with Claude (Oct 2026); has an ELM327 Bluetooth adapter; wants engine DTCs, live data, Volvo modules (АКПП, Haldex) and trip logging
 - [stated] BMW has a wide Android head unit installed in place of the stock screen, with a CAN decoder that already shows car data without ELM; building a custom launcher (Drive Home) for it with Claude (Nov 2026)
+- [stated] BMW: no Harman Kardon (base audio); head unit sound via AUX is much worse than phone Bluetooth to the car; keeps the original stock screen as a spare, so doesn't mind risky head-unit modding
