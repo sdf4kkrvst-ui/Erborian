@@ -8,6 +8,7 @@ sources: [chat]
 - [stated] main income comes from furniture assembly ([[furniture-assembly-service]])
 - [stated] works in logistics — contractors (перевозчики) physically perform deliveries; user takes a percentage as informational-services commission; customers pay the full amount to the user, who then pays contractors
 - [stated] handles a large volume of deliveries — around 10,000 per month, with up to 25 deliveries per рейс (trip)
+- [stated] goes by Алик — address him as Алик, not Ара
 - [stated] full name Закян Ара Суренович (Ara Zakyan); uses the logistzuskov@gmail.com mailbox, separate from colleague/partner Давыд Зуськов (zusman780@gmail.com)
 - [stated] own mailbox zakjan@yandex.ru — uses it for his own ИП's outreach to new clients instead of logistzuskov@
 - [stated] contact phone for business correspondence: 8 (903) 182-96-96
