@@ -1,2 +1,2 @@
-/areas/renovation-contracting.md (2026-11-03T09:14:46Z)
-/areas/space-rpg-game.md (2026-11-02T23:23:34Z)
+dns-registry-reconciliation.md (areas) — 2026-11-07T09:29Z
+profile.md — 2026-11-07T09:38Z

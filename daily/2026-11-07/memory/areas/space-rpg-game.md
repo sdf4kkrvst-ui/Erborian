@@ -1,0 +1,64 @@
+---
+name: space-rpg-game
+description: User's own Android game project built with Claude — started as space RPG "Void Drifter", now a single-player open-world fantasy RPG in Godot; read when the game, Unity, Godot or game assets come up.
+sources: [cowork]
+aliases: [Хроники Эрбориана, Тихий Брод, Void Drifter, космическая RPG, RPG с открытым миром, Godot игра]
+---
+- [stated] developing a game for Android phones with Claude; wants a game that can attract a large audience; wants Claude to do the work on his PC directly
+- [stated] earlier version: open-world space RPG "Void Drifter" (web/Three.js prototype, then Unity) — dropped in Oct 2026 ("нафиг этот космос")
+- [stated] new direction: single-player open-world RPG in the spirit of World of Warcraft / Diablo, stylized WoW-like graphics; tap-to-move controls like Age of Empires; one hero, companions follow him automatically and attack the same targets
+- [stated] chose Godot instead of Unity for the new game (asked Claude to download Godot); Unity Hub/Asset Store account is allzak666 (Араик Закян)
+- [stated] wants character creation with class and gender choice; talent tree per class with three subclasses each: tank, healer, damage
+- [stated] wants a tavern as a place on the map you walk to, where companions can be hired; some companions join only after hard quests
+- [stated] Oct 2026: renamed the game to «Хроники Эрбориана» (wants to move away from the «Тихий Брод» name)
+- [stated] game was called «Тихий Брод»; decided to switch all characters to Mixamo models (Oct 2026), downloads them himself via his own Adobe login; staying on Godot
+- [stated] design direction (Oct 2026): factions and their relations modeled on the Heroes (Might & Magic) series; combat and gameplay model like Dota 2; wants a faction-specific pack of proper weapons and armor
+- [stated] wants test runs of the game done in Claude's sandbox rather than launching the game on his PC repeatedly
+- [stated] Oct 2026: wants models less cartoonish — chose dark fantasy style like Diablo; factions: Necropolis, Castle, Rampart/Forest, Inferno/Stronghold; wants Claude to build whole characters (heroes M/F, companions/NPCs, monsters/bosses, faction weapons/armor), he only rigs them in Mixamo
+- [stated] Oct 2026: wants an effectively endless story and a big open world with kingdoms, seas etc.; chose «главы + живой мир» (written chapters plus endless world events); wants naval battles and sea monsters
+- [stated] wants each APK build named with a version number (so builds on the Desktop aren't confused) and everything saved to his PC right away
+- [stated] world design: mainland with kingdoms of humans, orcs, dwarves etc., Alderon as an island, undead/necromancer kingdom in the icy far north; each city/castle with its surrounding territory is a separate 1000×1000 location linked by roads (Witcher-style transitions)
+- [stated] Oct 2026: chose modular characters (one base body per race + swappable armor/clothing parts), all on the Mixamo skeleton; character models made in Blender; a separate parallel chat builds the weapon/armor pack on the Mixamo skeleton
+- [stated] the elf faction (Оплот) is called Сильванор (Sylvanor); elves have long pointed ears and wear no helmets — only headwear that leaves the ears free (circlet → silver leaf diadem → crown with gem → royal crown), sitting above the forehead on the Mixamo head bone
+- [stated] tests the game on a Samsung Galaxy S25 Ultra
+- [stated] Oct 2026: thinking about making the game online — many heroes roaming the mainland and fighting each other (PvP); wants the hero's estate to be a castle, not a house
+- [stated] decided to first polish the single-player game to an ideal state ("до идеала"), and only then build online; polish priorities: combat & difficulty, new kingdoms, story & quests, world beauty
+- [stated] magic design: schools by element — Fire, Water, Earth, Air, Holy (humans), plus separate Necromancy; humans strong in Holy, elves in the elements, dwarves in Earth and rune magic, orcs in Fire; wants colorful, interesting spell effects
+- [stated] Oct 2026: found procedurally built models too toy-like; decided to get 3D assets from AI generators, preferring free ones — he generates images + 3D (Hugging Face Hunyuan3D/TRELLIS) and sends GLBs, Claude processes them into the pack
+- [stated] Oct 2026: considered rebuilding as 2D like the first Diablo, then chose «Тихий Брод 2» as a new 3D build with a fixed Diablo-style camera, playable in the browser
+- [stated] Oct 2026: decided to rig characters with their own skeleton instead of Mixamo ("делаем сами нафиг миксамо"); joints must be placed by anatomy (science), not by his manual Mixamo markers; wants every rig tested on the Capoeira animation
+- [stated] Oct 2026: wants everything related to the project (programs, work files, APK builds) kept on drive D, not C; wants old versions deleted outright rather than kept
+- [stated] Oct 2026 gear design: every hero starts in a simple robe outfit (boots, pants, kaftan, gloves) with the simplest weapon; better armor comes later
+- [stated] Oct 2026 story structure: each race gets its own separate start (prologue) and race-specific quests that converge into the shared main plot; Тихий Брод village is only an intermediate stage; approach combines SWTOR and Dragon Age: Origins
+- [stated] has made mods for S.T.A.L.K.E.R. before (wrapped head textures onto models as a "ribbon"); Oct 2026 chose that approach for heads: face from portrait + 4-view generated sides wrapped as a ribbon texture, no separate 3D heads for human-like races
+- [stated] Oct 2026: wants everything thought through in detail before doing it ("все продумываем до мелочей и потом уже делаем") — after a night batch of 3D heads turned out unneeded
+- [stated] Oct 2026: chose to make clothing from sewing patterns (Marvelous Designer–style panels sewn and simulated on the body, pattern = UV, per-outfit texture atlas) because the graphics had been simplified too much; wants armor done by the same logic (atlas of plate/strap/mail pieces)
+- [stated] Oct 2026: wants weapon and armor icons in the profile/bag to be detailed (planned for later); for characters the head/face must be crisp, body skin quality matters less
+- [stated] Oct 2026 weapons: each people has its own weapon style (not one shared style); halflings get a sling as their weapon; is rethinking the class system ("по классам надо что то с этим делать")
+- [stated] Oct 2026 classes: chose a SWTOR-style class system
+- [stated] necromancer is not a race — any hero can become one after accumulating enough Darkness; no way back; necromancy is a separate branch; after turning, elemental spells become more necromantic, Holy magic, Chaos magic and elven (life) magic become unavailable ("жизнь и смерть несовместимы")
+- [stated] Chaos magic belongs to Inferno, planned as a big later expansion
+- [stated] Oct 2026: wants to finish polishing what exists and release the game to the public soon, then continue adding new features
+- [stated] Oct 2026: dark elves (Глубинный Двор) to become a playable race — seduced by Darkness, their magic «Тени» is a separate racial school (root of necromancy); Holy magic fully closed to them (heresy); rivals of Ingvar
+- [stated] Oct 2026: wants the project split among task-specific agents (story writer, game designer, world, model artist, Godot programmer, tester) with Claude as lead coordinator, based on a «Библия игры» document kept in the project folder
+- [stated] Oct 2026: wants token usage kept to a minimum in the project work (noticed multi-agent runs multiplied consumption); added a UI designer to the agent team
+- [stated] Oct 2026: wants the whole leveling timeline taken from SWTOR — class chosen at character creation, prologue levels 1–10 with SWTOR-like length, advanced class at 10; less XP per quest/kill; longer prologues
+- [stated] Oct 2026: wants more lands/territories and prefers a seamless open world without transitions (instead of separate linked locations)
+- [stated] Oct 2026: dark elves wear hoods and robes; helmets are hidden on them even when wearing armor; their order is the Круг Бледной Луны
+- [stated] Oct 2026: decided to move the game's development to Claude Code on his PC (project folder D:\RealmGodot) instead of the cloud sandbox
+- [stated] Oct 2026: asked Claude to write a fantasy novel series based on the Хроники Эрбориана lore with full creative freedom — wants quality at least on Perumov's level and a unique story (not like Game of Thrones); stressed that necromancy can never ally with Chaos
+- [stated] the lore includes Мохарт (spelled Морахт in his lore doc) — described by the user as indifferent ("она безразлична"); his full lore is the document «Летопись мира «Хроники Эрбориана»»
+- [stated] wants the novel series to follow the game world's lore more closely in important details (while liking Claude's own invention)
+- [stated] Oct 2026: novel book one («Разорванное кольцо») went through editing; wants to find where to get it published
+- [stated] Oct 2026: publishing the novel on Литрес: Самиздат under the pseudonym «Алекс Закарин» (initially planned «А. Закарин»), non-exclusive license (to keep publishers open), free opening fragment then paid; has his own cover art; Литрес published it in Oct 2026
+- [stated] Oct 2026: wants novel book two to be about the Academy of Seven Towers (Академия Семи Башен) — a side step from the main story, a deeper dive into Erborian history
+- [stated] novel series plan: likes the seven towers matching the magic schools, especially the Black Tower; Dane will eventually become a necromancer with Морахт behind him, and together they defeat Chaos
+- [stated] lore: Морахт is not Darkness itself but its herald (посланник); Darkness is all-encompassing, there are infinitely many worlds and each has its own herald of Darkness, as each has its own light-bearer (in Erborian — Заря)
+- [stated] novel book two: two storylines — Erborian's history before Ingvar (from the Academy's founding) plus Dane in the present; wants to write it after the weekly token limit refreshes
+- [stated] asked to remember (handoff for a new chat on novel book two): book one «Разорванное кольцо» is on Литрес https://litres.ru/74672787 (author «Алекс Закарин»); book two plan document «Хроники Эрбориана. Книга вторая — Библия» https://claude.ai/artifact/XZgmUBzRLjX1G6uM2kVU9g; manuscript sent/prepared for «Азбука» (avtoram@azbooka.spb.ru)
+- [stated] book two decisions: Морахт came to close a Chaos breach (opened by the Fire Tower) and plugged it with himself — the wound under Хельм is its scar; past line runs from the Academy's founding to Ingvar; Dane in the present seeks the Black Tower's legacy (via magister Мордрейн); Academy = a mages' city-state in the east; past-line heroine = an adept of the Black Tower, her friend from the Fire Tower opens the breach; chronicle dates approved (Academy ~1500 years before book one, breach ~1300, Gharr's revolt ~800, Ingvar 100); Dane–Lienna ending not decided yet; working title «Седьмая башня» (not confirmed)
+- [stated] token-saving approach for book two: new chat instead of this long one, chapter plan approved before writing, 1–2 full critic reads instead of many, point edits, feedback batched in one message
+- [stated] lore: the Black Tower is one of the seven towers; going with exiled Black Tower adepts teaching the dark elves (Круг Бледной Луны), so knowledge «made a circle» back to humans via the Order of the Black Tower (book one's Мордрейн line stays true)
+- [stated] Oct 2026: decided to write novel book two in cloud Claude Code via a private GitHub repo («будем там работать»), so work doesn't depend on the PC being on
+- [stated] Nov 2026: thinks the character skeleton has too many unnecessary bones and wants to rework it (weighing it, not decided)
+- [stated] Nov 2026: weighing moving the game to Unreal ("там все есть"); says 3D models are the biggest pain point ("прям боль")
