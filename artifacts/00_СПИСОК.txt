@@ -1,73 +1,27 @@
-Резервная копия артефактов claude.ai — 29.10.2026
-Папка: /home/claude/backup/artifacts   Общий размер: 104M
-
-Типы: «Docs» — документы Claude Docs, содержимое выгружено экспортом в Markdown (.md) через коннектор Claude Docs.
-Код просмотрщика Docs (≈90 служебных файлов artifact-type/*, одинаковых у всех документов) НЕ копировался: это не содержимое.
-Остальные — обычные HTML-страницы/приложения, скачаны все опубликованные файлы.
-
-01. Тендеры на модули и бытовки — Москва и МО
-    https://claude.ai/code/artifact/6050cff2-e2b1-4900-ac8b-eaa8c3976238
-    Docs. ПОЛНОСТЬЮ: Тендеры на модули и бытовки — Москва и МО.md (11 КБ). Папка 01_Tendery_moduli_bytovki (16K)
-02. Хроники Эрбориана. Книга вторая — Библия
-    https://claude.ai/code/artifact/f78277b0-c8a4-400b-b985-2cd0d27da273
-    Docs. ПОЛНОСТЬЮ: .md (14,5 КБ). Папка 02_Erborian_Kniga2_Bibliya (20K)
-03. Хроники Эрбориана. Книга первая: Разорванное кольцо
-    https://claude.ai/code/artifact/2953a6c3-9ed8-46ea-b8d1-5d462d0399ab
-    Docs. ПОЛНОСТЬЮ: .md (731 КБ, текст книги до «Конец первой книги»). Папка 03_Erborian_Kniga1_Razorvannoe_kolco (720K)
-04. Хроники Эрбориана. Книга первая: Брод
-    https://claude.ai/code/artifact/0b6a5eac-ef3e-4ea0-8df8-972dc17a05ae
-    Docs. ПОЛНОСТЬЮ: .md (361 КБ). Папка 04_Erborian_Kniga1_Brod (360K)
-05. Библия Эрбориана
-    https://claude.ai/code/artifact/4317dd1a-fa69-4be3-8707-0ba8b79d63c8
-    HTML-страница. ПОЛНОСТЬЮ: index.html (45 КБ). Папка 05_Bibliya_Erboriana
-06. Записка сюжетника
-    https://claude.ai/code/artifact/f1445716-fcb5-4d4f-912b-49feac7cf41a
-    HTML-страница. ПОЛНОСТЬЮ: index.html (55 КБ). Папка 06_Zapiska_syuzhetnika
-07. Документы при увольнении — ООО «НЕОКЕМ»
-    https://claude.ai/code/artifact/4617b4bb-dece-4e3a-a5bf-ba0f8a42bcc9
-    Docs. ПОЛНОСТЬЮ: .md (13,7 КБ). Папка 07_Dokumenty_uvolnenie_NEOKEM
-08. Тихий Брод 2
-    https://claude.ai/code/artifact/35b9b1cf-e057-434d-957b-d1174cc1e124
-    Игра (Three.js). ПОЛНОСТЬЮ: все 128 файлов — index.html, game.js, audio.js, vfx.js, assets/*.json (модели), assets/items, assets/sfx/*.mp3, assets/tex/*.jpg. 94M. Папка 08_Tihiy_Brod_2
-    Примечание: three.js и шрифты грузятся с CDN (jsdelivr / Google Fonts) — для запуска нужен интернет.
-09. Кузница Тихого Брода
-    https://claude.ai/code/artifact/ac7df4f0-0a85-45bd-a944-3afa21372424
-    HTML-страница (без отдельных файлов). ПОЛНОСТЬЮ: index.html (78 КБ). Папка 09_Kuznica_Tihogo_Broda
-10. Летопись мира «Тихий Брод»
-    https://claude.ai/code/artifact/ea99f540-e7ef-420c-b520-a011fcb8d53a
-    Docs. ПОЛНОСТЬЮ: .md (72 КБ). Папка 10_Letopis_Tihiy_Brod
-11. Аскона и ДНС — выручка
-    https://claude.ai/code/artifact/fd30522d-f941-4c0f-88b8-6b081727cd98
-    Dashboard. ПОЛНОСТЬЮ: данные askona_acts.csv и dns_periods.csv (из хранилища ассетов), страница дашборда dashboard_page.html,
-    база дашборда db/ (dash/meta, datasets/*.json, files/index.html.json), плюс файлы типа (index.html, SKILL.md, artifact-type/*). 2.1M
-12. Бери Живи — карусели
-    https://claude.ai/code/artifact/d7357627-4a6a-4c8a-8aa6-302b879f0d1e
-    Design (холст). ПОЛНОСТЬЮ: project/ — 8 слайдов *.dc.html (Main, A2–A4, B1–B4) + canvas.json; плюс файлы типа. Хранилище ассетов и БД пусты. 5.5M
-13. Бери Живи — старт Instagram
-    https://claude.ai/code/artifact/914cdda6-ef0e-434e-ae6c-efa85762a767
-    Docs. ПОЛНОСТЬЮ: .md (18 КБ). Папка 13_Beri_Zhivi_start_Instagram
-14. Сборка мебели у Ары
-    https://claude.ai/code/artifact/e89d5468-2681-4cc4-a96c-67ea3147d547
-    Сайт. ПОЛНОСТЬЮ: index.html + img/chest.jpg, kids.jpg, oak.jpg, wallbed.jpg. 344K
-15. Табель водителей 1509
-    https://claude.ai/code/artifact/3af2cb6c-1c07-4f9c-b45d-ecabca757323
-    HTML-страница. ПОЛНОСТЬЮ: index.html (39 КБ)
-16. Монитор Земли
-    https://claude.ai/code/artifact/737a3e64-8199-4135-a3d4-399b038cca78
-    HTML-страница. ПОЛНОСТЬЮ: index.html (872 КБ)
-17. Ригель Металлоконструкции
-    https://claude.ai/code/artifact/41e90f29-a90e-4875-b30b-1466c9d33034
-    HTML-страница. ПОЛНОСТЬЮ: index.html (57 КБ)
-18. Азбука для малышей
-    https://claude.ai/code/artifact/cd5d625c-7a12-476f-9353-7f8c69e4a73b
-    HTML-страница. ПОЛНОСТЬЮ: index.html (33 КБ)
-19. Азбука — буква А
-    https://claude.ai/code/artifact/4813bd39-6b19-4bbe-b002-b66ff20c8943
-    HTML-страница. ПОЛНОСТЬЮ: index.html (9 КБ)
-
-Не скачано: ничего из содержимого. Сознательно пропущены только служебные файлы просмотрщика у Docs-документов
-(одинаковый код типа, не содержимое) и история версий/комментарии документов. Экспорт Docs сделан в Markdown (не docx).
-
-20. Заявление о выдаче копии декларации за 2025 год (обновлено 30.10.2026)
-    https://claude.ai/artifact/M1mAB8SqQoWqdjvF4FHrX3
-    Docs. Скопирован index.html (33 КБ). Папка 20_Zayavlenie_kopiya_deklaracii
+Артефакты аккаунта (на 2026-11-09 00:10 МСК). [КОПИЯ СЕГОДНЯ] — скопированы за 08.11.
+Модельный ряд МАФ — 13 изделий × 3 модели | https://claude.ai/artifact/E7AcgYVGSmVSCSEmde42FG | 2026-11-08 | [Docs; полный текст в этой копии НЕ сохранён — экспорт приходит base64 в контексте, остаётся в аккаунте]
+МАФ — модели изделий | https://claude.ai/artifact/3pfVoqGV3r6wpMk4kmu5iy | 2026-11-08 | [Docs; полный текст НЕ сохранён, см. выше]
+Каталог МАФ для участка | https://claude.ai/artifact/99YwxyZB2nBhE4vzCPJmyZ | 2026-11-08 | [КОПИЯ СЕГОДНЯ: artifacts/01_Каталог_МАФ_Design]
+Ригель Металлоконструкции | https://claude.ai/artifact/994FD7PrEXbdbxfJqjzbaj | 2026-09-07
+Новый сайт ПСО-733 | https://claude.ai/artifact/SBCLi9xh8yjcsLZ6J8dy59 | 2026-11-01
+Презентация ПСО-733 | https://claude.ai/artifact/WJMm1kRSrcfkpCjZJ8zFFc | 2026-11-01
+Тендеры на модули и бытовки — Москва и МО | https://claude.ai/artifact/CtpdhpKAyMqQxEbhZnywTm | 2026-10-29
+Объявления ПСО-733 и «Бери Живи» | https://claude.ai/artifact/1Gjripic5Rsk5CmgWyDmEX | 2026-11-01
+Заявление о выдаче копии декларации за 2025 год | https://claude.ai/artifact/M1mAB8SqQoWqdjvF4FHrX3 | 2026-10-30
+Документы при увольнении — ООО «НЕОКЕМ» | https://claude.ai/artifact/9f1YPC15NwadfvkCn7tfWg | 2026-10-23
+Хроники Эрбориана. Книга вторая — Библия | https://claude.ai/artifact/XZgmUBzRLjX1G6uM2kVU9g | 2026-10-26
+Азбука для малышей | https://claude.ai/artifact/SMqkQvDPfV1uzWAHXi5Z2J | 2026-08-03
+Хроники Эрбориана. Книга первая: Разорванное кольцо | https://claude.ai/artifact/66zBX8pzErXDh8T7y3Wjez | 2026-10-24
+Хроники Эрбориана. Книга первая: Брод | https://claude.ai/artifact/2Qm1oMqYzW9tFnL8iVZVKB | 2026-10-24
+Летопись мира «Тихий Брод» | https://claude.ai/artifact/VyEfroL9LJzVw5nB816VvZ | 2026-10-20
+Библия Эрбориана | https://claude.ai/artifact/9HXbSWZJHibMxXxr97frpo | 2026-10-23
+Записка сюжетника | https://claude.ai/artifact/WnyYpzXUc2QPD389VwPJ4y | 2026-10-23
+Тихий Брод 2 | https://claude.ai/artifact/7dnaNyTpwgEUXrohLJvDAs | 2026-10-21
+Кузница Тихого Брода | https://claude.ai/artifact/NJQNKqinqhgsjoeMN8NrT5 | 2026-10-20
+Аскона и ДНС — выручка | https://claude.ai/artifact/YGMsskbzx8J9iWMYXVJ8tf | 2026-10-15
+Сборка мебели у Ары | https://claude.ai/artifact/Vj1LfH7WqoWRtQ6o6FQHQz | 2026-10-06
+Бери Живи — карусели | https://claude.ai/artifact/TaLyjUCNF6ZY5vq18eyfQZ | 2026-10-06
+Бери Живи — старт Instagram | https://claude.ai/artifact/Jwet6s6p3yJ5e3u64CNXmY | 2026-10-06
+Табель водителей 1509 | https://claude.ai/artifact/8HCEcoAXwUkG36h7zFU66N | 2026-09-26
+Монитор Земли | https://claude.ai/artifact/FG4UxqwdKZiQapAK4ZUwHh | 2026-09-25
+Азбука — буква А | https://claude.ai/artifact/9uDua43beLcYq3c41xDY6v | 2026-08-03

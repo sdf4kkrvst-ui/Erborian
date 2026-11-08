@@ -1,6 +1,6 @@
 ---
 name: space-rpg-game
-description: User's own Android game project built with Claude — started as space RPG "Void Drifter", now a single-player open-world fantasy RPG in Godot; read when the game, Unity, Godot or game assets come up.
+description: User's own game project built with Claude — started as space RPG "Void Drifter", now a single-player open-world fantasy RPG (Godot, now targeting PC, weighing Unreal); read when the game, Unity, Godot, Unreal or game assets come up.
 sources: [cowork]
 aliases: [Хроники Эрбориана, Тихий Брод, Void Drifter, космическая RPG, RPG с открытым миром, Godot игра]
 ---
@@ -62,3 +62,4 @@ aliases: [Хроники Эрбориана, Тихий Брод, Void Drifter, 
 - [stated] Oct 2026: decided to write novel book two in cloud Claude Code via a private GitHub repo («будем там работать»), so work doesn't depend on the PC being on
 - [stated] Nov 2026: thinks the character skeleton has too many unnecessary bones and wants to rework it (weighing it, not decided)
 - [stated] Nov 2026: weighing moving the game to Unreal ("там все есть"); says 3D models are the biggest pain point ("прям боль")
+- [stated] Nov 2026: the game is now being made for PC, not the phone; leaning toward Unreal ("анриал мне кажется лучше"), not decided yet
