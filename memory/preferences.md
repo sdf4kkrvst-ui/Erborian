@@ -10,3 +10,4 @@ sources: [chat]
 - [stated] in DNS registry requests, if a registry file is not received, keep asking for it again in every following letter to DNS until it arrives
 - [stated] in DNS registry reconciliation, when a courier is marked as on duty ("дежурство"), automatically create a placeholder route file modeled on the DNS registry sample
 - [stated] in the game project, wants everything thought through in detail before starting work ("в следующий раз все продумываем до мелочей и потом уже делаем"), so time isn't wasted on batches that turn out unneeded
+- [stated] in English lessons, felt Claude was flattering him — wants honest assessment of his English, not constant "perfect"

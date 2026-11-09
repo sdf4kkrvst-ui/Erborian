@@ -1,6 +1,7 @@
-Изменено за 2026-11-08 (Москва):
-/areas/maf-catalog.md
-/areas/metal-structures-production.md
-/areas/space-rpg-game.md
-/topics/computer-setup.md
-(остальные файлы памяти не менялись — см. снимок в корне ветки memory/)
+Изменено в памяти за 2026-11-09 (МСК) — в этой папке лежат только эти файлы; полный снимок — в memory/ в корне ветки:
+/areas/haier-tv-launcher.md
+/people/family.md
+/people/golovko.md
+/preferences.md
+/topics/english-learning.md
+/topics/pets.md
