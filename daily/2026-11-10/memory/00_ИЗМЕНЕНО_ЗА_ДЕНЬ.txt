@@ -1,0 +1,10 @@
+Файлы памяти, изменённые 10.11.2026 (по МСК, 09.11 21:00Z – 10.11 21:00Z):
+/areas/dns-registry-reconciliation.md  19:27Z
+/areas/furniture-assembly-service.md   16:45Z
+/areas/neokem-wage-dispute.md          10:00Z
+/areas/space-rpg-game.md               15:22Z
+/areas/yandex-delivery.md              16:55Z
+/preferences.md                        11:50Z
+/profile.md                            09:27Z
+(/areas/ai-phone-receptionist-startup.md обновлён 21:04Z — уже следующий день, войдёт в копию за 11.11)
+Остальные файлы памяти не менялись; их снимок — в корне ветки claude-backup (memory/).

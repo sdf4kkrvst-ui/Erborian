@@ -1,7 +1,0 @@
-Изменено в памяти за 2026-11-09 (МСК) — в этой папке лежат только эти файлы; полный снимок — в memory/ в корне ветки:
-/areas/haier-tv-launcher.md
-/people/family.md
-/people/golovko.md
-/preferences.md
-/topics/english-learning.md
-/topics/pets.md

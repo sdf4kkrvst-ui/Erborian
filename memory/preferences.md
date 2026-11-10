@@ -11,3 +11,4 @@ sources: [chat]
 - [stated] in DNS registry reconciliation, when a courier is marked as on duty ("дежурство"), automatically create a placeholder route file modeled on the DNS registry sample
 - [stated] in the game project, wants everything thought through in detail before starting work ("в следующий раз все продумываем до мелочей и потом уже делаем"), so time isn't wasted on batches that turn out unneeded
 - [stated] in English lessons, felt Claude was flattering him — wants honest assessment of his English, not constant "perfect"
+- [stated] wants Claude to "learn together" with him ("учись вместе со мной"): record lessons from failures and what worked (one line each) in project files (CLAUDE.md, DECISIONS.md, HANDOFF.md) and turn proven procedures into skills, so new chats don't repeat old mistakes

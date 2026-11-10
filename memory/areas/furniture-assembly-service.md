@@ -15,3 +15,4 @@ sources: [chat]
 - [stated] (Oct 2026) starting to promote the assembly service on Avito, Instagram/Reels, Telegram/VK and Яндекс Карты/Профи.ру; has a few own photos/videos of assembled furniture
 - [stated] keeps separate assembly-payment workbooks for «корпус Савицкого» (folder КОРПУС САВИЦКИЙ, «Сборка на оплаты с ценами Савиц.xlsx») and «корпус Зуськова» («Сборка ЗУСЬКОВ …») — two different files, never mix them
 - [stated] kitchen assembly (кухни) belongs to Зуськова — kitchen acts/records are kept separately from the Askona furniture (Савицкий) ones
+- [stated] (Nov 2026) has 3 assemblers (can add more if needed); pays an assembler from 1 000 ₽ per job

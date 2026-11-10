@@ -1,0 +1,29 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 4660,
+      "title": "Главная — ЛогАй",
+      "w": 1440,
+      "x": 0,
+      "y": 540
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-10T20:45:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "file": "Main.dc.html",
+    "view": "focused"
+  },
+  "notes": {},
+  "order": [
+    "Main.dc.html"
+  ],
+  "pages": [],
+  "title": "Сайт ЛогАй"
+}

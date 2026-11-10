@@ -1,0 +1,17 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-11-10T20:40:00Z"},
+  "lists": "css",
+  "title": "ИИ-диспетчер для перевозчиков",
+  "order": ["cover", "pain", "how", "demo", "drivers", "custom", "compare", "pilot"],
+  "sections": {
+    "s1": {"description": "Какую рутину перевозчика мы убираем", "start": "cover"},
+    "s2": {"description": "Как это работает на реальном дне", "start": "how"},
+    "s3": {"description": "Что получает перевозчик и как попробовать", "start": "drivers"}
+  },
+  "faces": {
+    "manrope": {"family": "Manrope", "href": "https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=Inter:wght@400;600&display=swap"},
+    "inter": {"family": "Inter", "href": "https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=Inter:wght@400;600&display=swap"}
+  },
+  "designSystems": []
+}

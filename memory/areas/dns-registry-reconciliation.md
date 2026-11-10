@@ -10,3 +10,4 @@ aliases: [реестры ДНС, сверка реестров, ИП Зуськ�
 - [stated] For a "дежурство" day, automatically create a stub route file following the DNS registry sample: order number 000000, client «ДНС - РИТЕЙЛ», weight 0.01, volume 0.01, address «склад Пушкино».
 - [stated] The payroll calculator ("Реестр доставок") pays a duty day as the route minimum, 22 500 ₽.
 - [stated] Profit for ДНС (Москва, Тверь) and Аскона/Чередниченко is computed from revenue without НДС (НДС not counted at all), minus УСН 6%, minus driver payouts; the remainder is split equally among three people.
+- [stated] asked to prepare a handoff for a new session (10.11.2026): full state, rules, October totals and open items are in C:\Users\berez\Desktop\Зуськова ДНС\HANDOFF ДНС — октябрь 2026.md — read it first when continuing DNS/октябрь work.

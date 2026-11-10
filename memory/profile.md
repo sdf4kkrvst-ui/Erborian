@@ -7,7 +7,7 @@ sources: [chat]
 - [stated] is an ИП (individual entrepreneur) on УСН (simplified tax system); current ИП registered in 2025 (previous ИП registered 2020, closed 2024)
 - [stated] main income comes from furniture assembly ([[furniture-assembly-service]])
 - [stated] works in logistics — contractors (перевозчики) physically perform deliveries; user takes a percentage as informational-services commission; customers pay the full amount to the user, who then pays contractors
-- [stated] logistics income (ДНС Москва, ДНС Тверь, Аскона/Чередниченко) is 20% withheld from drivers (plus tariff difference where applicable); УСН 6% is paid on the whole sum received from the customer, НДС is not counted; what remains is split between three
+- [stated] logistics income (ДНС Москва, ДНС Тверь, Аскона/Чередниченко) is 20% withheld from drivers (plus tariff difference where applicable) — ДНС pays by ДНС tariffs; Moscow drivers are paid by ПЭК tariffs minus 20%, Tver drivers by ДНС tariffs minus 20%; УСН 6% is paid on the whole sum received from the customer, НДС is not counted; what remains is split between three
 - [stated] personally carries vehicle leasing and fuel costs for the logistics drivers; part is compensated by deductions from drivers (Отчет ЗП), and the uncompensated remainder is subtracted from his own third
 - [stated] handles a large volume of deliveries — around 10,000 per month, with up to 25 deliveries per рейс (trip)
 - [stated] goes by Алик — address him as Алик, not Ара

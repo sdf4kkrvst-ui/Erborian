@@ -25,3 +25,13 @@
 Табель водителей 1509 | https://claude.ai/artifact/8HCEcoAXwUkG36h7zFU66N | 2026-09-26
 Монитор Земли | https://claude.ai/artifact/FG4UxqwdKZiQapAK4ZUwHh | 2026-09-25
 Азбука — буква А | https://claude.ai/artifact/9uDua43beLcYq3c41xDY6v | 2026-08-03
+
+--- добавлено 10.11.2026 ---
+21 ИИ-диспетчер: сверка реестров — ТЗ — https://claude.ai/artifact/WF4enZqvdPLJPKLysXFVUA — 2026-11-10 (скопирован)
+22 Сборщик по артикулу — план стартапа — https://claude.ai/artifact/3VZAHhZhHDrT38phaEuyfL — 2026-11-10 (скопирован)
+23 Английский за рулём — ТЗ — https://claude.ai/artifact/EsHzZYTrznWbK5CA58DjZu — 2026-11-10 (скопирован)
+24 Сайт ЛогАй (Design) — https://claude.ai/artifact/MC1K7dtHwpaj3qFpNQPUC7 — 2026-11-10 (скопирован)
+25 ИИ-диспетчер для заказчиков (Slides) — https://claude.ai/artifact/DzuRpWGGoLaEaRe3uR8in6 — 2026-11-10 (скопирован)
+26 ИИ-диспетчер для перевозчиков (Slides) — https://claude.ai/artifact/S5hg2ropheHmWhTrXNiQCk — 2026-11-10 (скопирован)
+07 Невыплата расчёта — НЕОКЕМ — https://claude.ai/artifact/T5WeRqstWRjKu63usAyHML — обновлён 2026-11-10 (НЕ скопирован: 5 вкладок, нужен отдельный экспорт)
+Прочие (без изменений 10.11): Хроники Эрбориана Библия, Модельный ряд МАФ 13×3, МАФ модели изделий, Каталог МАФ — обновлены 08.11 (в списке выше только Каталог_МАФ_Design).

@@ -1,0 +1,17 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-11-10T20:30:00Z"},
+  "lists": "css",
+  "title": "ИИ-диспетчер для заказчиков",
+  "order": ["cover", "problem", "mismatch", "how", "demo", "selfcheck", "effect", "custom", "next", "pilot"],
+  "sections": {
+    "s1": {"description": "Что это и какую боль закрывает", "start": "cover"},
+    "s2": {"description": "Как это работает и пример на реальном дне", "start": "how"},
+    "s3": {"description": "Что меняется для компании и предложение пилота", "start": "effect"}
+  },
+  "faces": {
+    "manrope": {"family": "Manrope", "href": "https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=Inter:wght@400;600&display=swap"},
+    "inter": {"family": "Inter", "href": "https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=Inter:wght@400;600&display=swap"}
+  },
+  "designSystems": []
+}

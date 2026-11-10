@@ -63,3 +63,4 @@ aliases: [Хроники Эрбориана, Тихий Брод, Void Drifter, 
 - [stated] Nov 2026: thinks the character skeleton has too many unnecessary bones and wants to rework it (weighing it, not decided)
 - [stated] Nov 2026: weighing moving the game to Unreal ("там все есть"); says 3D models are the biggest pain point ("прям боль")
 - [stated] Nov 2026: the game is now being made for PC, not the phone; leaning toward Unreal ("анриал мне кажется лучше"), not decided yet
+- [stated] Nov 2026: plans to rework the hero character models together with the game lead (Claude Code on the PC) — denser head mesh, skin detail from a scan
