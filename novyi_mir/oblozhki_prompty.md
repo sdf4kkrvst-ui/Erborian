@@ -90,3 +90,12 @@ science fiction, futuristic technology, not medieval, no swords, no shields, no 
 ```
 medieval, sword, shield, cape, cloak, castle, cathedral, orc, dwarf, elf, fantasy armor, gothic, skulls, warhammer, text, letters, watermark
 ```
+
+---
+
+# Редакция 3: А3 — герой и пчела в технологичном мире В2
+Проба В2 удалась (экзокостюмы с грелками, рельсовые винтовки, десантные корабли, пушки, кольцо орбитального лифта, асаг с вросшими машинами, мёртвые в шлемах). Вариант А пока средневековый. А3 переносит образ А (герой, пчела, змеедракон с лицом Милы) в визуальный язык В2.
+
+```
+Dark science fiction book cover painting in the same style: high-tech future meets necromancy. Foreground: a young soldier with curly dark hair, helmet off, in a frost-covered matte-black exosuit with heat-battery packs on his back and thin ember-orange heating coils glowing through the ice, a long railgun rifle slung on his shoulder. He raises his armored glove, and a single small golden honeybee sits on his fingertip; he looks at it, breath freezing in the air. Around him a dome of cold twilight shadow, hoarfrost and silver mist; from the ash rise grey dead soldiers in cracked tactical helmets and combat armor, frost-white eyes, palms turned up. Debris of crashed drones and broken rifles. Behind, beyond the shadow, a colossal serpent-dragon of fused flesh, stone and wrecked machinery coils around a burning futuristic agricultural city with grain elevators and an orbital elevator ring; human faces in its scales, the largest one a young girl with closed eyes. Black angular dropships in the sky, a dead star above. Palette of frost white, steel grey, twilight blue, two warm accents only: orange heating coils and the gold bee. Painterly, cinematic, grim, emotional, high detail. Empty dark sky in the top third for the title. No text, no letters. --ar 2:3
+```
